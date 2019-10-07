@@ -35,5 +35,5 @@ Teacher/Instructor: Alhvi Balcarcel.
 
 - **Learn to make a 3D Platformer Game with Unity** `https://www.udemy.com/course/unity3dplatformer/`
 
-## Licensia
-No hay licensia.
+## Licencia
+No hay licencia.
