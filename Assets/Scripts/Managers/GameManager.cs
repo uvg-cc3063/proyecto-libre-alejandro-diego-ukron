@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject deathEffect;
 
-    public int currentCoins;
+    public int currentGears;
 
     public int levelEndMusic = 8;
 
@@ -83,12 +83,12 @@ public class GameManager : MonoBehaviour
         Debug.Log("SpawnPoint set");
     }
 
-    /*public void AddCoins(int coinsToAdd)
+    public void AddGears(int gearsToAdd)
     {
-        currentCoins += coinsToAdd;
-        UIManager.instance.coinText.text = currentCoins.ToString();
+        currentGears += gearsToAdd;
+        UIManager.instance.gearText.text = currentGears.ToString();
     }
-
+    /*
     public void PauseUnPause()
     {
         if (UIManager.instance.PauseScreen.activeInHierarchy)
