@@ -132,6 +132,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Taddeus
       objectReference: {fileID: 0}
+    - target: {fileID: -9053771497562211856, guid: 617e501edc56393489f5dfdcd7e5cd6d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7541921545629475224, guid: 617e501edc56393489f5dfdcd7e5cd6d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8357152294821079933, guid: 617e501edc56393489f5dfdcd7e5cd6d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7697143811837729468, guid: 617e501edc56393489f5dfdcd7e5cd6d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 617e501edc56393489f5dfdcd7e5cd6d,
         type: 3}
       propertyPath: m_LocalPosition.x
