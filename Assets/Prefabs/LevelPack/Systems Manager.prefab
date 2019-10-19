@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1582404569311560812
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1582404569311560813}
+  - component: {fileID: 1582404569311560814}
+  - component: {fileID: 1582404569311560815}
+  m_Layer: 0
+  m_Name: Systems Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1582404569311560813
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582404569311560812}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.6230469, y: 3.4863281, z: -0.27539062}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1582404569311560814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582404569311560812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6da09af24ba0692408487fa4ad2890d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathEffect: {fileID: 0}
+  currentCoins: 0
+  levelEndMusic: 8
+  levelToLoad: 
+  isRespawning: 0
+--- !u!114 &1582404569311560815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582404569311560812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e02f4b4b1aa02841b9a72b926c0b1e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 5
+  maxHealth: 5
+  invincibleLength: 2
+  healthBarImages:
+  - {fileID: 21300000, guid: 379c70067cb8b76469fdddb8b403260e, type: 3}
+  - {fileID: 21300000, guid: 473f9a1f63ca6c44fb8be72d3aad4dee, type: 3}
+  - {fileID: 21300000, guid: 68ab88c23646e914898bd57bb78633e7, type: 3}
+  - {fileID: 21300000, guid: 65e1edb7e11378c47811870bdd4d2813, type: 3}
+  - {fileID: 21300000, guid: 3e03d791418de9d42ac28b7f51efc5cc, type: 3}
+  soundToPlay: 0
+  anim: {fileID: 0}

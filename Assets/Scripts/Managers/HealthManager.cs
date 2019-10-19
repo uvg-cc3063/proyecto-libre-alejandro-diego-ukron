@@ -14,6 +14,8 @@ public class HealthManager : MonoBehaviour
 
     public int soundToPlay;
 
+    public Animator anim;
+
     private void Awake()
     {
         instance = this;
@@ -55,16 +57,22 @@ public class HealthManager : MonoBehaviour
     {
         if (invincCounter <= 0)
         {
-            currentHealth -= 1;
+            currentHealth -= 1;            
             //AudioManager.instance.PlaySFX(soundToPlay);
 
             if (currentHealth <= 0)
             {
                 currentHealth = 0;
+                anim.SetBool("isDeath", true);
+                anim.SetTrigger("Death");
+                PlayerController.instance.Knockback();
+                PlayerController.instance.stopMove = true;
                 GameManager.instance.Respawn();
             }
             else
             {
+                anim.SetTrigger("Hurt");
+                anim.SetBool("isDeath", false);
                 PlayerController.instance.Knockback();
                 invincCounter = invincibleLength;
             }
@@ -77,9 +85,12 @@ public class HealthManager : MonoBehaviour
         if (invincCounter <= 0)
         {
             currentHealth = 0;
+            anim.SetBool("isDeath", true);
+            anim.SetTrigger("Death");
+            PlayerController.instance.Knockback();
+            PlayerController.instance.stopMove = true;
             //AudioManager.instance.PlaySFX(soundToPlay);
 
-            currentHealth = 0;
             GameManager.instance.Respawn();
 
             UpdateUI();
@@ -88,7 +99,9 @@ public class HealthManager : MonoBehaviour
 
     public void ResetHealth()
     {
+        anim.SetBool("isDeath", false);
         currentHealth = maxHealth;
+        PlayerController.instance.stopMove = false;
         UIManager.instance.healthImage.enabled = true;
         UpdateUI();
     }
@@ -100,7 +113,9 @@ public class HealthManager : MonoBehaviour
         if (currentHealth > maxHealth)
         {
             currentHealth = maxHealth;
+            
         }
+        UpdateUI();
     }
 
     public void UpdateUI()
@@ -132,6 +147,8 @@ public class HealthManager : MonoBehaviour
     public void PlayerKilled()
     {
         //AudioManager.instance.PlaySFX(soundToPlay);
+        anim.SetBool("isDeath", true);
+        anim.SetTrigger("Death");
         currentHealth = 0;
         UpdateUI();
     }

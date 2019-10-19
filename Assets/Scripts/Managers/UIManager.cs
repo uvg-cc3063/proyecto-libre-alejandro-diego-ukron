@@ -9,7 +9,7 @@ public class UIManager : MonoBehaviour
     public static UIManager instance;
 
     public Image blackScreen;
-    public float fadeSpeed = 1f;
+    public float fadeSpeed = 0.65f;
     public bool fadeToBlack, fadeFromBlack;
 
     public Text healthText;

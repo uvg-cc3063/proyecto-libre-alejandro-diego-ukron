@@ -47,8 +47,8 @@ public class GameManager : MonoBehaviour
 
     public void Respawn()
     {
-        StartCoroutine(RespawnCo());
-        //HealthManager.instance.PlayerKilled();
+        HealthManager.instance.PlayerKilled();
+        StartCoroutine(RespawnCo());        
 
     }
 
@@ -57,14 +57,17 @@ public class GameManager : MonoBehaviour
       */
     public IEnumerator RespawnCo()
     {
-        PlayerController.instance.gameObject.SetActive(false);
+        
         CameraController.instance.theCMBrain.enabled = false;
 
         UIManager.instance.fadeToBlack = true;
+
+        
         //Instantiate(deathEffect, PlayerController.instance.transform.position + new Vector3(0f, 1f, 0f), PlayerController.instance.transform.rotation);
-        yield return new WaitForSeconds(2f); //after two seconds the player is respawn to its original position.
+        yield return new WaitForSeconds(3f); //after two seconds the player is respawn to its original position.
+        PlayerController.instance.gameObject.SetActive(false);
         isRespawning = true;
-        //HealthManager.instance.ResetHealth();
+        HealthManager.instance.ResetHealth();
         UIManager.instance.fadeFromBlack = true;
 
         PlayerController.instance.transform.position = respawnPosition;
