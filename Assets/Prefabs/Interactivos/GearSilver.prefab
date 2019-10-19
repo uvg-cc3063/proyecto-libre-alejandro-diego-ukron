@@ -49,7 +49,7 @@ MonoBehaviour:
   value: 3
   gearEffect: {fileID: 8160499031380551251, guid: ce97cb5aaea5b59439fe5c31f0386884,
     type: 3}
-  soundToPlay: 0
+  soundToPlay: 7
 --- !u!135 &2284318214277356587
 SphereCollider:
   m_ObjectHideFlags: 0
