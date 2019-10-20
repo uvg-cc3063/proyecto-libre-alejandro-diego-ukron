@@ -22,7 +22,9 @@ public class PlayerController : MonoBehaviour
 
     public Animator anim;
 
-    public int JumpSound;
+    public int JumpSound,StepSound;
+
+    public bool steps = true;
 
     //Knocking the player back
     public bool isKnocking;
@@ -82,13 +84,28 @@ public class PlayerController : MonoBehaviour
                 //playerModel.transform.rotation = newRotation; //This rotation is not smooth.
 
                 playerModel.transform.rotation = Quaternion.Slerp(playerModel.transform.rotation, newRotation, rotateSpeed * Time.deltaTime);
-
+                if (charController.isGrounded && steps)
+                {
+                    AudioManager.instance.PlaySFX(StepSound);
+                    steps = false;
+                }
+                else if (charController.isGrounded == false)
+                {
+                    AudioManager.instance.StopSFX(StepSound);
+                    steps = true;
+                }
+            }
+            else
+            {
+                AudioManager.instance.StopSFX(StepSound);
+                steps = true;
             }
         }
 
         //THE PLAYER IS BEING KNOCKED BACK.
         if (isKnocking)
         {
+            AudioManager.instance.StopSFX(StepSound);
             knockbackCounter -= Time.deltaTime;
 
             float yStore = moveDirection.y;
@@ -119,6 +136,7 @@ public class PlayerController : MonoBehaviour
 
         anim.SetFloat("Speed", Mathf.Abs(moveDirection.x) + Mathf.Abs(moveDirection.z)); //to set the parameter of animation to the value of our "x" input or "z" input.
         anim.SetBool("Grounded", charController.isGrounded); //set true or false to de animation parameter.
+        
     }
 
     public void Knockback()
