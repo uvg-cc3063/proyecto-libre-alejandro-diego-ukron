@@ -27,7 +27,7 @@ public class HealthPickUp : MonoBehaviour
         {
             Instantiate(healthEffect, transform.position, transform.rotation);
             Destroy(gameObject);
-            AudioManager.instance.PlaySFX(soundToPlay);
+            AudioManager.instance.PlaySfx(soundToPlay);
             if (isFullHeal)
             {
                 HealthManager.instance.ResetHealth();

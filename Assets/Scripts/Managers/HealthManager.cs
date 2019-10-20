@@ -62,8 +62,8 @@ public class HealthManager : MonoBehaviour
 
             if (currentHealth <= 0)
             {
-                AudioManager.instance.PlaySFX(soundDeath);
-                AudioManager.instance.PlaySFX(soundDeath2);
+                AudioManager.instance.PlaySfx(soundDeath);
+                AudioManager.instance.PlaySfx(soundDeath2);
                 currentHealth = 0;
                 anim.SetBool("isDeath", true);
                 anim.SetTrigger("Death");
@@ -73,7 +73,7 @@ public class HealthManager : MonoBehaviour
             }
             else
             {
-                AudioManager.instance.PlaySFX(soundHurt);
+                AudioManager.instance.PlaySfx(soundHurt);
                 anim.SetTrigger("Hurt");
                 anim.SetBool("isDeath", false);
                 PlayerController.instance.Knockback();
@@ -92,8 +92,8 @@ public class HealthManager : MonoBehaviour
             anim.SetTrigger("Death");
             PlayerController.instance.Knockback();
             PlayerController.instance.stopMove = true;
-            AudioManager.instance.PlaySFX(soundDeath);
-            AudioManager.instance.PlaySFX(soundDeath2);
+            AudioManager.instance.PlaySfx(soundDeath);
+            AudioManager.instance.PlaySfx(soundDeath2);
 
             GameManager.instance.Respawn();
 
@@ -150,8 +150,8 @@ public class HealthManager : MonoBehaviour
 
     public void PlayerKilled()
     {
-        AudioManager.instance.PlaySFX(soundDeath);
-        AudioManager.instance.PlaySFX(soundDeath2);
+        AudioManager.instance.PlaySfx(soundDeath);
+        AudioManager.instance.PlaySfx(soundDeath2);
         anim.SetBool("isDeath", true);
         anim.SetTrigger("Death");
         currentHealth = 0;

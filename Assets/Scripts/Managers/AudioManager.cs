@@ -42,11 +42,11 @@ public class AudioManager : MonoBehaviour
         music[musicToPlay].Play();
     }
 
-    public void PlaySFX(int sfxToPlay)
+    public void PlaySfx(int sfxToPlay)
     {
         sfx[sfxToPlay].Play();
     }
-    public void StopSFX(int sfxToStop)
+    public void StopSfx(int sfxToStop)
     {
         sfx[sfxToStop].Stop();
     }
@@ -56,8 +56,8 @@ public class AudioManager : MonoBehaviour
         musicMixer.audioMixer.SetFloat("musicVol", UIManager.instance.musicVolSlider.value);
     }
 
-    public void SetSFXLevel()
+    public void SetSfxLevel()
     {
-        musicMixer.audioMixer.SetFloat("sfxVol", UIManager.instance.sfxVolSlider.value);
+        sfxMixer.audioMixer.SetFloat("sfxVol", UIManager.instance.sfxVolSlider.value);
     }
 }

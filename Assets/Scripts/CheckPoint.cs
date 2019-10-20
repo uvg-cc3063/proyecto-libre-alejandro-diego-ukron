@@ -26,7 +26,7 @@ public class CheckPoint : MonoBehaviour
             GameManager.instance.SetSpawnPoint(transform.position); //SET THE NEW POSITION OF THE SPAWN POINT IN GAMEMANAGER
 
             CheckPoint[] allCP = FindObjectsOfType<CheckPoint>();
-            AudioManager.instance.PlaySFX(soundToPlay);
+            AudioManager.instance.PlaySfx(soundToPlay);
             for (int i = 0; i < allCP.Length; i++) //Setting all checkpoints to OFF except current checkpoint.
             {
                 allCP[i].cpOFF.SetActive(true);

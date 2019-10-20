@@ -47,7 +47,7 @@ public class GearPickUp : MonoBehaviour
             Destroy(gameObject);
             Instantiate(gearEffect, transform.position, transform.rotation);
 
-            AudioManager.instance.PlaySFX(soundToPlay);
+            AudioManager.instance.PlaySfx(soundToPlay);
         }
     }
 }

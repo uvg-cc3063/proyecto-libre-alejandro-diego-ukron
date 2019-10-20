@@ -2688,7 +2688,7 @@ MonoBehaviour:
   soundDeath: 1
   soundDeath2: 0
   soundHurt: 11
-  anim: {fileID: 0}
+  anim: {fileID: 946355590919345032, guid: c42145db3402ce548b844462f0898d47, type: 3}
 --- !u!114 &6166077133765062498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2724,8 +2724,10 @@ MonoBehaviour:
   - {fileID: 2111501852}
   - {fileID: 638290964}
   levelMusicToPlay: 0
-  musicMixer: {fileID: 0}
-  sfxMixer: {fileID: 0}
+  musicMixer: {fileID: -1812932376810928661, guid: c03edc22268e32141bd1fe7bbc16da24,
+    type: 2}
+  sfxMixer: {fileID: -3965682711985403206, guid: c03edc22268e32141bd1fe7bbc16da24,
+    type: 2}
 --- !u!1 &6191717469473761150
 GameObject:
   m_ObjectHideFlags: 0

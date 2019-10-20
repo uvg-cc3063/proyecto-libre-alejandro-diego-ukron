@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
 
                 if (Input.GetButtonDown("Jump"))
                 {
-                    AudioManager.instance.PlaySFX(JumpSound);
+                    AudioManager.instance.PlaySfx(JumpSound);
                     moveDirection.y = jumpForce;
                 }
             }
@@ -86,18 +86,18 @@ public class PlayerController : MonoBehaviour
                 playerModel.transform.rotation = Quaternion.Slerp(playerModel.transform.rotation, newRotation, rotateSpeed * Time.deltaTime);
                 if (charController.isGrounded && steps)
                 {
-                    AudioManager.instance.PlaySFX(StepSound);
+                    AudioManager.instance.PlaySfx(StepSound);
                     steps = false;
                 }
                 else if (charController.isGrounded == false)
                 {
-                    AudioManager.instance.StopSFX(StepSound);
+                    AudioManager.instance.StopSfx(StepSound);
                     steps = true;
                 }
             }
             else
             {
-                AudioManager.instance.StopSFX(StepSound);
+                AudioManager.instance.StopSfx(StepSound);
                 steps = true;
             }
         }
@@ -105,7 +105,7 @@ public class PlayerController : MonoBehaviour
         //THE PLAYER IS BEING KNOCKED BACK.
         if (isKnocking)
         {
-            AudioManager.instance.StopSFX(StepSound);
+            AudioManager.instance.StopSfx(StepSound);
             knockbackCounter -= Time.deltaTime;
 
             float yStore = moveDirection.y;
