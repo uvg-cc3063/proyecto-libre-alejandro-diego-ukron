@@ -41,10 +41,10 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         //PAUSE MENU
-        /*if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             PauseUnPause();
-        }*/
+        }
     }
 
     public void Respawn()
@@ -102,7 +102,7 @@ public class GameManager : MonoBehaviour
         UIManager.instance.gearBronceText.text = currentBronceGears.ToString();
     }
     //------------------
-    /*
+    
     public void PauseUnPause()
     {
         if (UIManager.instance.PauseScreen.activeInHierarchy)
@@ -123,7 +123,7 @@ public class GameManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
         }
     }
-
+    /*
     public IEnumerator LevelEndCo()
     {
         AudioManager.instance.PlayMusic(levelEndMusic);

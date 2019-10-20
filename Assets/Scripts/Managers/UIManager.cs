@@ -58,7 +58,7 @@ public class UIManager : MonoBehaviour
 
     public void Resume()
     {
-        //GameManager.instance.PauseUnPause();
+        GameManager.instance.PauseUnPause();
     }
 
     public void OpenOptions()
