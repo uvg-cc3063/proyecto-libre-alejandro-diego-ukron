@@ -143,7 +143,7 @@ public class HealthManager : MonoBehaviour
                 UIManager.instance.healthImage.sprite = healthBarImages[0];
                 break;
             case 0:
-                UIManager.instance.healthImage.enabled = false;
+                UIManager.instance.healthImage.sprite = healthBarImages[5];
                 break;
         }
     }

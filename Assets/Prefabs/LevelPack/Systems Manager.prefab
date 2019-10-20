@@ -2550,11 +2550,12 @@ MonoBehaviour:
   maxHealth: 5
   invincibleLength: 2
   healthBarImages:
-  - {fileID: 21300000, guid: 379c70067cb8b76469fdddb8b403260e, type: 3}
-  - {fileID: 21300000, guid: 473f9a1f63ca6c44fb8be72d3aad4dee, type: 3}
-  - {fileID: 21300000, guid: 68ab88c23646e914898bd57bb78633e7, type: 3}
-  - {fileID: 21300000, guid: 65e1edb7e11378c47811870bdd4d2813, type: 3}
-  - {fileID: 21300000, guid: 3e03d791418de9d42ac28b7f51efc5cc, type: 3}
+  - {fileID: 21300000, guid: 536cff747ad5cf04ba43143ac124e4ca, type: 3}
+  - {fileID: 21300000, guid: 2ab9f09c08179454d9d393556829c6f8, type: 3}
+  - {fileID: 21300000, guid: cdc257c8109c4ea4f8ae0288f2285449, type: 3}
+  - {fileID: 21300000, guid: aede4b05189ca374fa949c74d8dab9c4, type: 3}
+  - {fileID: 21300000, guid: 03cd5adc966daad4c8931041943b3ba0, type: 3}
+  - {fileID: 21300000, guid: 3ef277b4cbaf5014a847596c2e09348c, type: 3}
   soundDeath: 1
   soundDeath2: 0
   soundHurt: 11
