@@ -15,7 +15,7 @@ public class UIManager : MonoBehaviour
     public Text healthText;
     public Image healthImage;
 
-    public Text gearText;
+    public Text gearGoldText, gearBronceText, gearSilverText;
 
     public GameObject PauseScreen, optionsScreen;
 

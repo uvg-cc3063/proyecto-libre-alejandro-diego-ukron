@@ -11,7 +11,9 @@ public class GameManager : MonoBehaviour
 
     public GameObject deathEffect;
 
-    public int currentGears;
+    public int currentGoldGears;
+    public int currentSilverGears;
+    public int currentBronceGears;
 
     public int levelEndMusic = 8;
 
@@ -83,11 +85,23 @@ public class GameManager : MonoBehaviour
         Debug.Log("SpawnPoint set");
     }
 
-    public void AddGears(int gearsToAdd)
+    //FOR GEARS
+    public void AddGoldGears(int gearsToAdd)
     {
-        currentGears += gearsToAdd;
-        UIManager.instance.gearText.text = currentGears.ToString();
+        currentGoldGears += gearsToAdd;
+        UIManager.instance.gearGoldText.text = currentGoldGears.ToString();
     }
+    public void AddSilverGears(int gearsToAdd)
+    {
+        currentSilverGears += gearsToAdd;
+        UIManager.instance.gearSilverText.text = currentSilverGears.ToString();
+    }
+    public void AddBronceGears(int gearsToAdd)
+    {
+        currentBronceGears += gearsToAdd;
+        UIManager.instance.gearBronceText.text = currentBronceGears.ToString();
+    }
+    //------------------
     /*
     public void PauseUnPause()
     {

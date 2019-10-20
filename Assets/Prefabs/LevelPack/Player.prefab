@@ -54,6 +54,7 @@ MonoBehaviour:
   playerModel: {fileID: 8476319369589462915}
   rotateSpeed: 5
   anim: {fileID: 3274316593045620970}
+  JumpSound: 16
   isKnocking: 0
   knockBackLength: 1
   knockbackPower: {x: 6, y: 10}

@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour
 
     public Animator anim;
 
+    public int JumpSound;
+
     //Knocking the player back
     public bool isKnocking;
     public float knockBackLength = .5f;
@@ -62,6 +64,7 @@ public class PlayerController : MonoBehaviour
 
                 if (Input.GetButtonDown("Jump"))
                 {
+                    AudioManager.instance.PlaySFX(JumpSound);
                     moveDirection.y = jumpForce;
                 }
             }

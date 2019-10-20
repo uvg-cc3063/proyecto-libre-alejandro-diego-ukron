@@ -46,10 +46,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8d638dfcd52a0944b0dc3302ce8d548, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 3
+  value: 1
   gearEffect: {fileID: 8160499031380551251, guid: ce97cb5aaea5b59439fe5c31f0386884,
     type: 3}
   soundToPlay: 7
+  type: 1
 --- !u!135 &2284318214277356587
 SphereCollider:
   m_ObjectHideFlags: 0
