@@ -18,6 +18,7 @@ public class AudioManager : MonoBehaviour
     {
         instance = this;
     }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +40,7 @@ public class AudioManager : MonoBehaviour
         {
             music[i].Stop();
         }
+
         music[musicToPlay].Play();
     }
 
@@ -46,6 +48,7 @@ public class AudioManager : MonoBehaviour
     {
         sfx[sfxToPlay].Play();
     }
+
     public void StopSfx(int sfxToStop)
     {
         sfx[sfxToStop].Stop();

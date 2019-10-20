@@ -31,7 +31,6 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
     }
 
     // Update is called once per frame
@@ -39,7 +38,8 @@ public class UIManager : MonoBehaviour
     {
         if (fadeToBlack)
         {
-            blackScreen.color = new Color(blackScreen.color.r, blackScreen.color.g, blackScreen.color.b, Mathf.MoveTowards(blackScreen.color.a, 1f, fadeSpeed * Time.deltaTime));
+            blackScreen.color = new Color(blackScreen.color.r, blackScreen.color.g, blackScreen.color.b,
+                Mathf.MoveTowards(blackScreen.color.a, 1f, fadeSpeed * Time.deltaTime));
             if (blackScreen.color.a == 1f)
             {
                 fadeToBlack = false;
@@ -48,7 +48,8 @@ public class UIManager : MonoBehaviour
 
         if (fadeFromBlack)
         {
-            blackScreen.color = new Color(blackScreen.color.r, blackScreen.color.g, blackScreen.color.b, Mathf.MoveTowards(blackScreen.color.a, 0f, fadeSpeed * Time.deltaTime));
+            blackScreen.color = new Color(blackScreen.color.r, blackScreen.color.g, blackScreen.color.b,
+                Mathf.MoveTowards(blackScreen.color.a, 0f, fadeSpeed * Time.deltaTime));
             if (blackScreen.color.a == 0f)
             {
                 fadeFromBlack = false;

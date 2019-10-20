@@ -50,8 +50,7 @@ public class GameManager : MonoBehaviour
     public void Respawn()
     {
         HealthManager.instance.PlayerKilled();
-        StartCoroutine(RespawnCo());        
-
+        StartCoroutine(RespawnCo());
     }
 
     /** A coroutine can be called wherever you want in your code, though the coroutine starts, 
@@ -59,12 +58,11 @@ public class GameManager : MonoBehaviour
       */
     public IEnumerator RespawnCo()
     {
-        
         CameraController.instance.theCMBrain.enabled = false;
 
         UIManager.instance.fadeToBlack = true;
 
-        
+
         //Instantiate(deathEffect, PlayerController.instance.transform.position + new Vector3(0f, 1f, 0f), PlayerController.instance.transform.rotation);
         yield return new WaitForSeconds(3f); //after two seconds the player is respawn to its original position.
         PlayerController.instance.gameObject.SetActive(false);
@@ -91,18 +89,20 @@ public class GameManager : MonoBehaviour
         currentGoldGears += gearsToAdd;
         UIManager.instance.gearGoldText.text = currentGoldGears.ToString();
     }
+
     public void AddSilverGears(int gearsToAdd)
     {
         currentSilverGears += gearsToAdd;
         UIManager.instance.gearSilverText.text = currentSilverGears.ToString();
     }
+
     public void AddBronceGears(int gearsToAdd)
     {
         currentBronceGears += gearsToAdd;
         UIManager.instance.gearBronceText.text = currentBronceGears.ToString();
     }
     //------------------
-    
+
     public void PauseUnPause()
     {
         if (UIManager.instance.PauseScreen.activeInHierarchy)
@@ -123,6 +123,7 @@ public class GameManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
         }
     }
+
     /*
     public IEnumerator LevelEndCo()
     {

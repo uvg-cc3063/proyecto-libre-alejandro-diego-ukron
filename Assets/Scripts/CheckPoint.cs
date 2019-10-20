@@ -10,20 +10,19 @@ public class CheckPoint : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
     }
 
     // Update is called once per frame
     void Update()
     {
-
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            GameManager.instance.SetSpawnPoint(transform.position); //SET THE NEW POSITION OF THE SPAWN POINT IN GAMEMANAGER
+            GameManager.instance.SetSpawnPoint(transform
+                .position); //SET THE NEW POSITION OF THE SPAWN POINT IN GAMEMANAGER
 
             CheckPoint[] allCP = FindObjectsOfType<CheckPoint>();
             AudioManager.instance.PlaySfx(soundToPlay);
@@ -35,7 +34,6 @@ public class CheckPoint : MonoBehaviour
 
             cpOFF.SetActive(false);
             cpON.SetActive(true);
-
         }
     }
 }

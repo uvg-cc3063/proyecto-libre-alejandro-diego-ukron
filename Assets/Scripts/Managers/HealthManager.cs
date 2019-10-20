@@ -12,7 +12,7 @@ public class HealthManager : MonoBehaviour
 
     public Sprite[] healthBarImages;
 
-    public int soundDeath,soundDeath2,soundHurt;
+    public int soundDeath, soundDeath2, soundHurt;
 
     public Animator anim;
 
@@ -20,6 +20,7 @@ public class HealthManager : MonoBehaviour
     {
         instance = this;
     }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,7 +50,6 @@ public class HealthManager : MonoBehaviour
                     PlayerController.instance.playerPieces[i].SetActive(true);
                 }
             }
-
         }
     }
 
@@ -57,8 +57,8 @@ public class HealthManager : MonoBehaviour
     {
         if (invincCounter <= 0)
         {
-            currentHealth -= 1;         
-            
+            currentHealth -= 1;
+
 
             if (currentHealth <= 0)
             {
@@ -79,6 +79,7 @@ public class HealthManager : MonoBehaviour
                 PlayerController.instance.Knockback();
                 invincCounter = invincibleLength;
             }
+
             UpdateUI();
         }
     }
@@ -117,8 +118,8 @@ public class HealthManager : MonoBehaviour
         if (currentHealth > maxHealth)
         {
             currentHealth = maxHealth;
-            
         }
+
         UpdateUI();
     }
 

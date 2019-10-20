@@ -15,23 +15,22 @@ public class GearPickUp : MonoBehaviour
         SILVER,
         BRONCE
     }
+
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            if(type == GearType.GOLD)
+            if (type == GearType.GOLD)
             {
                 GameManager.instance.AddGoldGears(value);
             }
@@ -43,7 +42,7 @@ public class GearPickUp : MonoBehaviour
             {
                 GameManager.instance.AddBronceGears(value);
             }
-            
+
             Destroy(gameObject);
             Instantiate(gearEffect, transform.position, transform.rotation);
 

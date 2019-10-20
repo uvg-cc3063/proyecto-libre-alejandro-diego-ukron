@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
 
     public Animator anim;
 
-    public int JumpSound,StepSound;
+    public int JumpSound, StepSound;
 
     public bool steps = true;
 
@@ -55,10 +55,13 @@ public class PlayerController : MonoBehaviour
             float yStore = moveDirection.y; //8. Adding Gravity        
             //moveDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical")); //GetAxisRaw = gets what's been pressed at the moment
             //12. Moving based on camera rotation. Our vertical input (z.axis) is going to control wether we are facing forward or not.
-            moveDirection = (transform.forward * Input.GetAxisRaw("Vertical")) + (transform.right * Input.GetAxisRaw("Horizontal"));
+            moveDirection = (transform.forward * Input.GetAxisRaw("Vertical")) +
+                            (transform.right * Input.GetAxisRaw("Horizontal"));
             moveDirection.Normalize(); //make the speed of movement the same all the time.
-            moveDirection = moveDirection * moveSpeed; //This multiplication makes moveDirection changes its symbol "-" or "+"
-            moveDirection.y = yStore; //The y component of the move direction is updated so the y's position doesnt become 0 so fast.
+            moveDirection =
+                moveDirection * moveSpeed; //This multiplication makes moveDirection changes its symbol "-" or "+"
+            moveDirection.y =
+                yStore; //The y component of the move direction is updated so the y's position doesnt become 0 so fast.
 
             if (charController.isGrounded)
             {
@@ -83,7 +86,8 @@ public class PlayerController : MonoBehaviour
                 Quaternion newRotation = Quaternion.LookRotation(new Vector3(moveDirection.x, 0f, moveDirection.z));
                 //playerModel.transform.rotation = newRotation; //This rotation is not smooth.
 
-                playerModel.transform.rotation = Quaternion.Slerp(playerModel.transform.rotation, newRotation, rotateSpeed * Time.deltaTime);
+                playerModel.transform.rotation = Quaternion.Slerp(playerModel.transform.rotation, newRotation,
+                    rotateSpeed * Time.deltaTime);
                 if (charController.isGrounded && steps)
                 {
                     AudioManager.instance.PlaySfx(StepSound);
@@ -134,9 +138,10 @@ public class PlayerController : MonoBehaviour
             charController.Move(moveDirection);
         }
 
-        anim.SetFloat("Speed", Mathf.Abs(moveDirection.x) + Mathf.Abs(moveDirection.z)); //to set the parameter of animation to the value of our "x" input or "z" input.
+        anim.SetFloat("Speed",
+            Mathf.Abs(moveDirection.x) +
+            Mathf.Abs(moveDirection.z)); //to set the parameter of animation to the value of our "x" input or "z" input.
         anim.SetBool("Grounded", charController.isGrounded); //set true or false to de animation parameter.
-        
     }
 
     public void Knockback()
@@ -154,4 +159,3 @@ public class PlayerController : MonoBehaviour
         charController.Move(moveDirection * Time.deltaTime);
     }
 }
-
