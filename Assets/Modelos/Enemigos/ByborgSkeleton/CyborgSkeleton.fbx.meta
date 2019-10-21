@@ -33,7 +33,32 @@ ModelImporter:
   - first:
       74: 5410546100756729095
     second: SkeletonArmature|SkeletonRun
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BlackNouse
+    second: {fileID: 2100000, guid: c7877cf2a53516540a558387641133f5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalDark
+    second: {fileID: 2100000, guid: 2d28374b9dc508046bd4765358ce929b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RedEyes
+    second: {fileID: 2100000, guid: 67e876dc8d45a2f428c28b5a2574c41f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Skeleton
+    second: {fileID: 2100000, guid: 0acb48a71d028844ab92ca4ef002694a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sword
+    second: {fileID: 2100000, guid: 0a7202f5bcd4b2644a693fab98ef1ce7, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
