@@ -27,6 +27,7 @@ Lista de herramientas usadas para el proyecto:
 
 - :video_game: **Unity** — 2019.1.8.f1
 - 🚀 **Adobe premier pro CC 2017**  — Edicion de videos
+- :black_nib: **PaintTool SAI 2** — Creacion de UI
 - :camera: **Adobe Photoshop** — Edicion de imagenes
 - :musical_note: **CUbase LE AL Elements 9.5** — Musica
 
