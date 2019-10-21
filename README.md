@@ -26,13 +26,15 @@ Este proyecto es parte del curso de Programacion avanzada de videojuegos de la U
 Lista de herramientas usadas para el proyecto:
 
 - :video_game: **Unity** — 2019.1.8.f1
-- 🚀 **Adobe premier pro CC 2017**  — Edicion de videos
-- :black_nib: **PaintTool SAI 2** — Creacion de UI
+- :art: **PaintTool SAI 2** — Creacion de UI
+- :trophy: **Blender** — Modelado 3D
 - :camera: **Adobe Photoshop** — Edicion de imagenes
+- 🚀 **Adobe premier pro CC 2017**  — Edicion de audio y video
+- :radio_button: **Audacity**  — Edicion de audio
 - :musical_note: **CUbase LE AL Elements 9.5** — Musica
 
 ## Creditos y referencias
-Teacher/Instructor: Alhvi Balcarcel.
+Instructor de curso: Alhvi Balcarcel.
 
 - **Learn to make a 3D Platformer Game with Unity** `https://www.udemy.com/course/unity3dplatformer/`
 
