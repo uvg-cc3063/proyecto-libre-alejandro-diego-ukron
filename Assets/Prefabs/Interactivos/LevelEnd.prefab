@@ -53,6 +53,7 @@ MonoBehaviour:
   anim: {fileID: 76687004645515278}
   target: {fileID: 0}
   animationStarted: 0
+  effect: {fileID: 0}
 --- !u!95 &76687004645515278
 Animator:
   serializedVersion: 3
@@ -144,7 +145,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &76687004909808418
 Transform:
   m_ObjectHideFlags: 0
@@ -295,7 +296,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 2
       minScalar: 5
       maxCurve:
         serializedVersion: 2
