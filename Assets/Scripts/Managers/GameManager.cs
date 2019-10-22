@@ -124,20 +124,21 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    /*
+    
     public IEnumerator LevelEndCo()
     {
-        AudioManager.instance.PlayMusic(levelEndMusic);
+        //AudioManager.instance.PlayMusic(levelEndMusic);
+        AudioManager.instance.StopAllSFX();
         PlayerController.instance.stopMove = true;
         UIManager.instance.fadeToBlack = true;
 
         yield return new WaitForSeconds(4f);
         Debug.Log("Level ended");
 
-        PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_unlocked", 1);
+        //PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_unlocked", 1);
 
         //for coins
-        if (PlayerPrefs.HasKey(SceneManager.GetActiveScene().name + "_coins"))
+        /*if (PlayerPrefs.HasKey(SceneManager.GetActiveScene().name + "_coins"))
         {
             if (currentCoins > PlayerPrefs.GetInt(SceneManager.GetActiveScene().name + "_coins"))
             {
@@ -147,10 +148,10 @@ public class GameManager : MonoBehaviour
         else
         {
             PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_coins", currentCoins);
-        }
+        }*/
         //---------
 
         SceneManager.LoadScene(levelToLoad);
 
-    }*/
+    }
 }
