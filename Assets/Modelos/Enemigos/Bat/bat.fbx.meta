@@ -4,20 +4,26 @@ ModelImporter:
   serializedVersion: 25
   internalIDToNameTable:
   - first:
-      74: 5474195223759842185
-    second: BatArmature|BatArmature|BatArmature|Bat_Attack2|BatArmature|Bat_Attack2
+      74: -4931789197307264134
+    second: BatArmature|Bat_Attack
   - first:
-      74: -8233661432839643650
-    second: BatArmature|BatArmature|BatArmature|Bat_Attack|BatArmature|Bat_Attack
+      74: 6798196322625840709
+    second: BatArmature|Bat_Attack2
   - first:
-      74: 578499714740336836
-    second: BatArmature|BatArmature|BatArmature|Bat_Death|BatArmature|Bat_Death
+      74: -6525713538245659961
+    second: BatArmature|Bat_Awake
   - first:
-      74: 8965732530135154389
-    second: BatArmature|BatArmature|BatArmature|Bat_Flying|BatArmature|Bat_Flying
+      74: -5200130379853124148
+    second: BatArmature|Bat_Death
   - first:
-      74: 2973893863279897663
-    second: BatArmature|BatArmature|BatArmature|Bat_Hit|BatArmature|Bat_Hit
+      74: -8588731844908120542
+    second: BatArmature|Bat_Flying
+  - first:
+      74: 3507104242674810391
+    second: BatArmature|Bat_Hit
+  - first:
+      74: 6821706185897600769
+    second: BatArmature|Bat_Sleep
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -77,38 +83,9 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: BatArmature|BatArmature|BatArmature|Bat_Attack2|BatArmature|Bat_Attack2
-      takeName: BatArmature|BatArmature|BatArmature|Bat_Attack2|BatArmature|Bat_Attack2
-      internalID: 5474195223759842185
-      firstFrame: 0
-      lastFrame: 30
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: BatArmature|BatArmature|BatArmature|Bat_Attack|BatArmature|Bat_Attack
-      takeName: BatArmature|BatArmature|BatArmature|Bat_Attack|BatArmature|Bat_Attack
-      internalID: -8233661432839643650
+      name: BatArmature|Bat_Attack
+      takeName: BatArmature|Bat_Attack
+      internalID: -4931789197307264134
       firstFrame: 0
       lastFrame: 21
       wrapMode: 0
@@ -135,9 +112,67 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: BatArmature|BatArmature|BatArmature|Bat_Death|BatArmature|Bat_Death
-      takeName: BatArmature|BatArmature|BatArmature|Bat_Death|BatArmature|Bat_Death
-      internalID: 578499714740336836
+      name: BatArmature|Bat_Attack2
+      takeName: BatArmature|Bat_Attack2
+      internalID: 6798196322625840709
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: BatArmature|Bat_Awake
+      takeName: BatArmature|Bat_Awake
+      internalID: -6525713538245659961
+      firstFrame: 0
+      lastFrame: 31
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: BatArmature|Bat_Death
+      takeName: BatArmature|Bat_Death
+      internalID: -5200130379853124148
       firstFrame: 0
       lastFrame: 29
       wrapMode: 0
@@ -164,9 +199,38 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: BatArmature|BatArmature|BatArmature|Bat_Flying|BatArmature|Bat_Flying
-      takeName: BatArmature|BatArmature|BatArmature|Bat_Flying|BatArmature|Bat_Flying
-      internalID: 8965732530135154389
+      name: BatArmature|Bat_Flying
+      takeName: BatArmature|Bat_Flying
+      internalID: -8588731844908120542
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: BatArmature|Bat_Hit
+      takeName: BatArmature|Bat_Hit
+      internalID: 3507104242674810391
       firstFrame: 0
       lastFrame: 30
       wrapMode: 0
@@ -193,18 +257,18 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: BatArmature|BatArmature|BatArmature|Bat_Hit|BatArmature|Bat_Hit
-      takeName: BatArmature|BatArmature|BatArmature|Bat_Hit|BatArmature|Bat_Hit
-      internalID: 2973893863279897663
+      name: BatArmature|Bat_Sleep
+      takeName: BatArmature|Bat_Sleep
+      internalID: 6821706185897600769
       firstFrame: 0
-      lastFrame: 30
+      lastFrame: 50
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
