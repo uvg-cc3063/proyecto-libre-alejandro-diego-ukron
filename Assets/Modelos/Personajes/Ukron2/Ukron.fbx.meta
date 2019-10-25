@@ -55,7 +55,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: GrayPecks
-    second: {fileID: 2100000, guid: d4d2b83dd0d3db84f8cb9475eac11a8f, type: 2}
+    second: {fileID: 2100000, guid: e77096e1ca0278b4aab559008e1b3ba6, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

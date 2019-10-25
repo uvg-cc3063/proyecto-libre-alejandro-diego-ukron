@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
 
     public Animator anim;
 
-    public int JumpSound, StepSound;
+    public int JumpSound;
 
     public bool steps = true;
 
@@ -88,28 +88,12 @@ public class PlayerController : MonoBehaviour
 
                 playerModel.transform.rotation = Quaternion.Slerp(playerModel.transform.rotation, newRotation,
                     rotateSpeed * Time.deltaTime);
-                if (charController.isGrounded && steps)
-                {
-                    AudioManager.instance.PlaySfx(StepSound);
-                    steps = false;
-                }
-                else if (charController.isGrounded == false)
-                {
-                    AudioManager.instance.StopSfx(StepSound);
-                    steps = true;
-                }
-            }
-            else
-            {
-                AudioManager.instance.StopSfx(StepSound);
-                steps = true;
             }
         }
 
         //THE PLAYER IS BEING KNOCKED BACK.
         if (isKnocking)
         {
-            AudioManager.instance.StopSfx(StepSound);
             knockbackCounter -= Time.deltaTime;
 
             float yStore = moveDirection.y;
