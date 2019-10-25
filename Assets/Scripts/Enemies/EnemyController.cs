@@ -13,12 +13,13 @@ public class EnemyController : MonoBehaviour
     public Animator anim;
 
     public enum AIState
-    {
+    {        
         isIdle,
         isPatrolling,
         isChasing,
         isAttacking,
-        isDeath
+        isDeath,
+        isSleep,
     };
     public AIState currentState;
 

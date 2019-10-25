@@ -5,11 +5,11 @@ using UnityEngine;
 public class LevelExit : MonoBehaviour
 {
     public Animator anim;
-    public Transform target;
     //private Vector3 offset;
     public bool animationStarted = false;
+    public Transform target;
     public GameObject effect;
-    public float distanceToPlayer;
+    public float acivateDistance;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,9 +19,9 @@ public class LevelExit : MonoBehaviour
     void Update()
     {
         //offset = transform.position - target.position;
-        float distanceToPlayer = Vector3.Distance(transform.position, PlayerController.instance.transform.position);
+        float distanceToPlayer = Vector3.Distance(transform.position, target.transform.position);
         //if (Mathf.Abs(offset.x) < 7.5 && animationStarted == false)
-        if (distanceToPlayer < 7.5 && animationStarted == false)
+        if (distanceToPlayer < acivateDistance && animationStarted == false)
         {
             anim.SetTrigger("Hit");
             effect.gameObject.SetActive(true);

@@ -274,7 +274,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1404054232704904428}
-  m_LocalRotation: {x: -0.000000029802319, y: -0.00000002708288, z: 0.0002856912,
+  m_LocalRotation: {x: -0.000000014901159, y: -0.000000025406033, z: 0.00010038372,
     w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -476,7 +476,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1404054233119454231}
-  m_LocalRotation: {x: -0.018141448, y: 0.0000051202064, z: 0.00028213588, w: 0.99983543}
+  m_LocalRotation: {x: -0.018141493, y: 0.0000018894408, z: 0.000103905506, w: 0.99983543}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -552,7 +552,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1404054233296146968}
-  m_LocalRotation: {x: 0.01818949, y: -0.0000057387233, z: 0.0003147128, w: 0.99983454}
+  m_LocalRotation: {x: 0.01818946, y: -0.000005756401, z: 0.00031487347, w: 0.9998346}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -751,7 +751,7 @@ GameObject:
   - component: {fileID: 1404054233725321425}
   - component: {fileID: 1404054233725321424}
   - component: {fileID: 1404054233725321431}
-  - component: {fileID: 1404054233725321428}
+  - component: {fileID: 457853970}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -767,7 +767,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1404054233725321427}
   m_LocalRotation: {x: 0.2139597, y: 0, z: 0, w: 0.9768425}
-  m_LocalPosition: {x: 1.9045298, y: 9, z: -10.764227}
+  m_LocalPosition: {x: 1.44, y: 8.99, z: -28.019793}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1404054233560091475}
@@ -862,7 +862,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: Cinemachine.CinemachineBrain+VcamActivatedEvent, Cinemachine, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1404054233725321428
+--- !u!114 &457853970
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -871,7 +871,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1404054233725321427}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6cd4d6627d1e4e4e817cab881f248e2, type: 3}
+  m_Script: {fileID: 11500000, guid: 66cf74ef016f02648a8d960588863334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   theCMBrain: {fileID: 1404054233725321431}

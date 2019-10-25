@@ -24,8 +24,6 @@ public class PlayerController : MonoBehaviour
 
     public int JumpSound;
 
-    public bool steps = true;
-
     //Knocking the player back
     public bool isKnocking;
     public float knockBackLength = .5f;

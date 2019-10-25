@@ -51,9 +51,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 76687004645515278}
-  target: {fileID: 0}
   animationStarted: 0
-  effect: {fileID: 0}
+  target: {fileID: 0}
+  effect: {fileID: 76687004909808419}
+  acivateDistance: 20
 --- !u!95 &76687004645515278
 Animator:
   serializedVersion: 3

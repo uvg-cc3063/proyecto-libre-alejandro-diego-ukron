@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
@@ -26,20 +28,36 @@ public class Gun : MonoBehaviour
         timer += Time.deltaTime;
         if (timer >= fireRate)
         {
-            if (Input.GetButton("Fire1"))
+            /*if (Input.GetButton("Fire1"))
             {
                 timer = 0f;
                 FireGun();
+            }*/
+            if (Input.GetKeyDown(KeyCode.X))
+            {
+                timer = 0f; 
+                FireGun();
             }
+            else if (Input.GetKeyUp(KeyCode.X))
+            {
+                PlayerController_s.instance.stopShot();
+            }
+            /*else 
+            {
+                PlayerController_s.instance.stopShot();
+            }*/
+
+
         }
     }
 
     private void FireGun()
     {
         Debug.DrawRay(firePoint.position, firePoint.forward * 100, Color.red, 2f);
+        PlayerController_s.instance.Shot();
 
-        //muzzleParticle.Play();
-        gunFireSource.Play();
+        muzzleParticle.Play();
+        AudioManager.instance.PlaySfx(19);
 
         Ray ray = new Ray(firePoint.position, firePoint.forward);
         RaycastHit hitInfo;
@@ -47,9 +65,19 @@ public class Gun : MonoBehaviour
         if (Physics.Raycast(ray, out hitInfo, 100))
         {
             //var health = hitInfo.collider.GetComponent<Health>();
-
+            Destroy(hitInfo.collider.gameObject);
             /*if (health != null)
                 health.TakeDamage(damage);*/
         }
+    }
+
+    public IEnumerator StopAiming()
+    {
+
+        yield return new WaitForSeconds(4f);
+        Debug.Log("stopAiming");
+
+        //Instantiate(itemToDrop, transform.position + new Vector3(0, 0.5f, 0), transform.rotation);
+
     }
 }

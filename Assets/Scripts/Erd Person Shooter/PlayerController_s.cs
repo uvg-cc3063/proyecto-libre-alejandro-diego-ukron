@@ -22,9 +22,7 @@ public class PlayerController_s : MonoBehaviour
 
     public Animator anim;
 
-    public int JumpSound, StepSound;
-
-    public bool steps = true;
+    public int JumpSound;
 
     //Knocking the player back
     public bool isKnocking;
@@ -89,28 +87,14 @@ public class PlayerController_s : MonoBehaviour
 
                 playerModel.transform.rotation = Quaternion.Slerp(playerModel.transform.rotation, newRotation,
                     rotateSpeed * Time.deltaTime);
-                if (charController.isGrounded && steps)
-                {
-                    AudioManager.instance.PlaySfx(StepSound);
-                    steps = false;
-                }
-                else if (charController.isGrounded == false)
-                {
-                    AudioManager.instance.StopSfx(StepSound);
-                    steps = true;
-                }
+
             }
-            else
-            {
-                AudioManager.instance.StopSfx(StepSound);
-                steps = true;
-            }
+
         }
 
         //THE PLAYER IS BEING KNOCKED BACK.
         if (isKnocking)
         {
-            AudioManager.instance.StopSfx(StepSound);
             knockbackCounter -= Time.deltaTime;
 
             float yStore = moveDirection.y;
@@ -158,5 +142,24 @@ public class PlayerController_s : MonoBehaviour
     {
         moveDirection.y = bounceForce;
         charController.Move(moveDirection * Time.deltaTime);
+    }
+
+    public void Shot()
+    {
+        //anim.SetBool("isShooting", true);
+        anim.SetTrigger("Shot");
+        //anim.SetBool("isShooting", true);
+    }
+    public void stopShot()
+    {
+        //anim.SetBool("isShooting", true);
+        //anim.SetTrigger("Shot");
+        anim.SetBool("isShooting", false);
+    }
+
+    public void StopAiming()
+    {
+        //anim.SetBool("isShooting", true);
+        anim.SetBool("AlertGun",false);
     }
 }
