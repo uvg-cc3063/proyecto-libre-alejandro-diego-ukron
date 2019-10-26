@@ -54,12 +54,11 @@ public class PlayerController_s : MonoBehaviour
             //moveDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical")); //GetAxisRaw = gets what's been pressed at the moment
             //12. Moving based on camera rotation. Our vertical input (z.axis) is going to control wether we are facing forward or not.
             moveDirection = (transform.forward * Input.GetAxisRaw("Vertical")) +
-                            (transform.right * Input.GetAxisRaw("Horizontal"));
+                            //(transform.right * Input.GetAxisRaw("Mouse X"));
+            (transform.right * Input.GetAxisRaw("Horizontal"));
             moveDirection.Normalize(); //make the speed of movement the same all the time.
-            moveDirection =
-                moveDirection * moveSpeed; //This multiplication makes moveDirection changes its symbol "-" or "+"
-            moveDirection.y =
-                yStore; //The y component of the move direction is updated so the y's position doesnt become 0 so fast.
+            moveDirection = moveDirection * moveSpeed; //This multiplication makes moveDirection changes its symbol "-" or "+"
+            moveDirection.y = yStore; //The y component of the move direction is updated so the y's position doesnt become 0 so fast.
 
             if (charController.isGrounded)
             {
@@ -78,6 +77,7 @@ public class PlayerController_s : MonoBehaviour
             charController.Move(moveDirection * Time.deltaTime);
 
             //10. Rotating the player with the camera
+            //if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
             if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
             {
                 //transform.rotation = Quaternion.Euler(0f, theCam.transform.rotation.eulerAngles.y, 0f);
@@ -89,6 +89,15 @@ public class PlayerController_s : MonoBehaviour
                     rotateSpeed * Time.deltaTime);
 
             }
+            if (Input.GetAxis("Mouse X") != 0)
+            {
+                var Xmouse = Input.GetAxis("Mouse X");
+                Quaternion mouseRotation = Quaternion.LookRotation(new Vector3(Xmouse, 0f, moveDirection.z));
+                playerModel.transform.rotation = Quaternion.Slerp(playerModel.transform.rotation, mouseRotation,
+                        rotateSpeed * Time.deltaTime);
+            }
+            
+            //playerModel.transform.Rotate(Vector3.up, Xmouse * rotateSpeed * Time.deltaTime);
 
         }
 

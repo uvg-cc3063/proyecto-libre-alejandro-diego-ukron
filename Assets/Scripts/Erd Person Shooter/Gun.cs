@@ -12,8 +12,8 @@ public class Gun : MonoBehaviour
     [Range(1, 10)]
     private int damage = 1;
 
-    [SerializeField]
-    private Transform firePoint;
+    /*[SerializeField]
+    private Transform firePoint;*/
 
     [SerializeField]
     private ParticleSystem muzzleParticle;
@@ -33,12 +33,14 @@ public class Gun : MonoBehaviour
                 timer = 0f;
                 FireGun();
             }*/
-            if (Input.GetKeyDown(KeyCode.X))
+            //if (Input.GetKeyDown(KeyCode.X))
+            if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 timer = 0f; 
                 FireGun();
             }
-            else if (Input.GetKeyUp(KeyCode.X))
+            //else if (Input.GetKeyUp(KeyCode.X))
+            else if (Input.GetKeyUp(KeyCode.Mouse0))
             {
                 PlayerController_s.instance.stopShot();
             }
@@ -53,13 +55,17 @@ public class Gun : MonoBehaviour
 
     private void FireGun()
     {
-        Debug.DrawRay(firePoint.position, firePoint.forward * 100, Color.red, 2f);
+        //Debug.DrawRay(firePoint.position, firePoint.forward * 100, Color.red, 2f);
         PlayerController_s.instance.Shot();
-
         muzzleParticle.Play();
         AudioManager.instance.PlaySfx(19);
 
-        Ray ray = new Ray(firePoint.position, firePoint.forward);
+
+        //Ray ray = new Ray(firePoint.position, firePoint.forward);
+        Ray ray = Camera.main.ViewportPointToRay(Vector3.one * 0.5f);
+
+        Debug.DrawRay(ray.origin, ray.direction * 100, Color.red, 2f);
+
         RaycastHit hitInfo;
 
         if (Physics.Raycast(ray, out hitInfo, 100))

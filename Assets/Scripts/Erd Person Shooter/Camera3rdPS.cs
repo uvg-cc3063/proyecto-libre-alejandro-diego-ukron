@@ -18,7 +18,14 @@ public class Camera3rdPS : MonoBehaviour
     private void Update()
     {
         float vertical = Input.GetAxis("Mouse Y") * sensitivity;
+        //--
+        float horizontal = Input.GetAxis("Mouse X") * sensitivity;
+        //--
         composer.m_TrackedObjectOffset.y += vertical;
-        composer.m_TrackedObjectOffset.y = Mathf.Clamp(composer.m_TrackedObjectOffset.y, -10, 10);
+        composer.m_TrackedObjectOffset.y = Mathf.Clamp(composer.m_TrackedObjectOffset.y, -5, 2.5f);
+        //--
+        composer.m_TrackedObjectOffset.x += horizontal;
+        composer.m_TrackedObjectOffset.x = Mathf.Clamp(composer.m_TrackedObjectOffset.x, -10, 10);
+        //--
     }
 }
