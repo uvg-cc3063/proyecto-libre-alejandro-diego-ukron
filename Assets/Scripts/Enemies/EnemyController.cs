@@ -31,6 +31,7 @@ public class EnemyController : MonoBehaviour
     public float attackRange = 1f;
     public float timeBetweenAttacks = 2f;
     private float attackCounter;
+    public bool isDeath = false;
 
     // Start is called before the first frame update
     void Start()
@@ -131,7 +132,12 @@ public class EnemyController : MonoBehaviour
                 }
                 break;
             case AIState.isDeath:
-                anim.SetTrigger("Death");
+                if (isDeath == false)
+                {
+                    anim.SetTrigger("Death");
+                    isDeath = true;
+                }
+                
                 break;
         }
     }
