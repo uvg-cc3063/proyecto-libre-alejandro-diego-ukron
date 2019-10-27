@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/LevelSelect.unity
     guid: 4e9dc7abaf8eb7e4fa47c7fd67575e0a
   - enabled: 1
+    path: Assets/Scenes/ErdPShooterTest.unity
+    guid: cea7180031b114b4faafdbb2e78dedf4
+  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 54752fe3410cf694083f966be8a2c56d
   - enabled: 1
