@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HealthManager : MonoBehaviour
 {
@@ -106,8 +107,25 @@ public class HealthManager : MonoBehaviour
     {
         anim.SetBool("isDeath", false);
         currentHealth = maxHealth;
-        PlayerController.instance.stopMove = false;
-        PlayerController_s.instance.stopMove = false;
+        /*if (SceneManager.GetActiveScene().name == "ErdPShooterTest")
+        {
+            PlayerController_s.instance.stopMove = true;
+        }
+        else
+        {
+            PlayerController.instance.stopMove = true;
+        }*/
+        PlayerController_s.instance.stopMove = true;
+        PlayerController.instance.stopMove = true;
+
+
+        UIManager.instance.healthImage.enabled = true;
+        UpdateUI();
+    }
+    public void ResetHealth2()
+    {
+        anim.SetBool("isDeath", false);
+        currentHealth = maxHealth;
         UIManager.instance.healthImage.enabled = true;
         UpdateUI();
     }

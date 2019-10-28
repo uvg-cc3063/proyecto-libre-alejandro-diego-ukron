@@ -2058,11 +2058,6 @@ PrefabInstance:
       propertyPath: anim
       value: 
       objectReference: {fileID: 1939746793}
-    - target: {fileID: 1582404569311560815, guid: 1d8aac2ca3e6d3c4ca5c0a5b60315cdd,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d8aac2ca3e6d3c4ca5c0a5b60315cdd, type: 3}
 --- !u!4 &442512600341411494 stripped
@@ -2497,7 +2492,7 @@ PrefabInstance:
     - target: {fileID: 3713206154306116877, guid: 0af4cf803b649804e879337ff7cab36d,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0af4cf803b649804e879337ff7cab36d, type: 3}
