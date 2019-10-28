@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b160fd028f666114bb9aa8eead25cb65
+guid: 9fcbd1b4eb874d6488b8a59244851ac4
 ModelImporter:
   serializedVersion: 25
   internalIDToNameTable: []
@@ -7,18 +7,28 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: RedCanion
-    second: {fileID: 2100000, guid: 5bc9490a7710529498b1b27abd7d0882, type: 2}
+      name: DGreenCanion
+    second: {fileID: 2100000, guid: 948e304cc244af749851f52e78e8e100, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GreenCanion
+    second: {fileID: 2100000, guid: 575a5b9d8a6ea9a4db7677fd7fae839e, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: metalicBody
-    second: {fileID: 2100000, guid: a2c985670bfe8c946bbaf3f32f9990d1, type: 2}
+    second: {fileID: 2100000, guid: d53b4f8afd3083e43be7fa031023b1eb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: metalicD
+    second: {fileID: 2100000, guid: 3cdb4ec314a762740a3df1966c213e85, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: thorns
-    second: {fileID: 2100000, guid: c9ab71389ba37ef4fb4b366f5c7f8d18, type: 2}
+    second: {fileID: 2100000, guid: cbf4dc7a915a04447a8daa40d4e28656, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

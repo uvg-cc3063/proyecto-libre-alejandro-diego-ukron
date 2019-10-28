@@ -107,6 +107,7 @@ public class HealthManager : MonoBehaviour
         anim.SetBool("isDeath", false);
         currentHealth = maxHealth;
         PlayerController.instance.stopMove = false;
+        PlayerController_s.instance.stopMove = false;
         UIManager.instance.healthImage.enabled = true;
         UpdateUI();
     }

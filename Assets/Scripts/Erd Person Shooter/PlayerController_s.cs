@@ -33,6 +33,7 @@ public class PlayerController_s : MonoBehaviour
     public GameObject[] playerPieces;
 
     public bool stopMove;
+    
 
     private void Awake()
     {
@@ -99,6 +100,7 @@ public class PlayerController_s : MonoBehaviour
             
             //playerModel.transform.Rotate(Vector3.up, Xmouse * rotateSpeed * Time.deltaTime);
 
+            
         }
 
         //THE PLAYER IS BEING KNOCKED BACK.
@@ -159,6 +161,13 @@ public class PlayerController_s : MonoBehaviour
         anim.SetTrigger("Shot");
         //anim.SetBool("isShooting", true);
     }
+    public void Sword()
+    {
+        //anim.SetBool("isShooting", true);
+        anim.SetTrigger("Sword");
+        //anim.SetBool("isShooting", true);
+    }
+    /*
     public void stopShot()
     {
         //anim.SetBool("isShooting", true);
@@ -170,5 +179,5 @@ public class PlayerController_s : MonoBehaviour
     {
         //anim.SetBool("isShooting", true);
         anim.SetBool("AlertGun",false);
-    }
+    }*/
 }
