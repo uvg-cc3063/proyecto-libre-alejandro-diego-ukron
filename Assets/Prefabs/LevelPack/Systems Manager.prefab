@@ -2919,7 +2919,7 @@ MonoBehaviour:
   currentSilverGears: 0
   currentBronceGears: 0
   levelEndMusic: 8
-  levelToLoad: LevelPackTest
+  levelToLoad: LevelSelect
   isRespawning: 0
 --- !u!114 &1582404569311560815
 MonoBehaviour:
@@ -2946,7 +2946,7 @@ MonoBehaviour:
   soundDeath: 1
   soundDeath2: 0
   soundHurt: 11
-  anim: {fileID: 0}
+  anim: {fileID: 946355590919345032, guid: c42145db3402ce548b844462f0898d47, type: 3}
 --- !u!114 &6166077133765062498
 MonoBehaviour:
   m_ObjectHideFlags: 0
