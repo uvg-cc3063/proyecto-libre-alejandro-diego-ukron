@@ -28,7 +28,7 @@ public class HealthPickUp : MonoBehaviour
             AudioManager.instance.PlaySfx(soundToPlay);
             if (isFullHeal)
             {
-                HealthManager.instance.ResetHealth2();
+                HealthManager.instance.ResetHealth();
             }
             else
             {

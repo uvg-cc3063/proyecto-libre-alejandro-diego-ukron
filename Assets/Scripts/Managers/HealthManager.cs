@@ -107,17 +107,9 @@ public class HealthManager : MonoBehaviour
     {
         anim.SetBool("isDeath", false);
         currentHealth = maxHealth;
-        /*if (SceneManager.GetActiveScene().name == "ErdPShooterTest")
-        {
-            PlayerController_s.instance.stopMove = true;
-        }
-        else
-        {
-            PlayerController.instance.stopMove = true;
-        }*/
-        PlayerController_s.instance.stopMove = true;
-        PlayerController.instance.stopMove = true;
 
+        //PlayerController_s.instance.stopMove = true;
+        //PlayerController.instance.stopMove = false;
 
         UIManager.instance.healthImage.enabled = true;
         UpdateUI();

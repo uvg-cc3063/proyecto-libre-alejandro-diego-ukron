@@ -32,17 +32,7 @@ public class GameManager : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
-        /*if (SceneManager.GetActiveScene().name == "ErdPShooterTest")
-        {
-            respawnPosition = PlayerController_s.instance.transform.position;
-            Debug.Log("PCshooter");
-        }
-        else
-        {
-            respawnPosition = PlayerController.instance.transform.position;
-            Debug.Log("PCnormal");
-        }      */
-        respawnPosition = PlayerController_s.instance.transform.position;
+        //respawnPosition = //PlayerController_s.instance.transform.position;
         respawnPosition = PlayerController.instance.transform.position;
 
         //AddCoins(0);
@@ -60,8 +50,8 @@ public class GameManager : MonoBehaviour
 
     public void Respawn()
     {
-        HealthManager.instance.PlayerKilled();
         StartCoroutine(RespawnCo());
+        HealthManager.instance.PlayerKilled();        
     }
 
     /** A coroutine can be called wherever you want in your code, though the coroutine starts, 
@@ -85,30 +75,6 @@ public class GameManager : MonoBehaviour
         CameraController.instance.theCMBrain.enabled = true;
 
         PlayerController.instance.gameObject.SetActive(true);
-        /*if (SceneManager.GetActiveScene().name == "ErdPShooterTest")
-        {
-            PlayerController_s.instance.gameObject.SetActive(false);
-            isRespawning = true;
-            HealthManager.instance.ResetHealth();
-            UIManager.instance.fadeFromBlack = true;
-
-            PlayerController_s.instance.transform.position = respawnPosition;
-            CameraController.instance.theCMBrain.enabled = true;
-
-            PlayerController_s.instance.gameObject.SetActive(true);
-        }
-        else
-        {
-            PlayerController.instance.gameObject.SetActive(false);
-            isRespawning = true;
-            HealthManager.instance.ResetHealth();
-            UIManager.instance.fadeFromBlack = true;
-
-            PlayerController.instance.transform.position = respawnPosition;
-            CameraController.instance.theCMBrain.enabled = true;
-
-            PlayerController.instance.gameObject.SetActive(true);
-        }*/
 
     }
 
@@ -163,18 +129,7 @@ public class GameManager : MonoBehaviour
     {
         //AudioManager.instance.PlayMusic(levelEndMusic);
         AudioManager.instance.StopAllSFX();
-
-        if (SceneManager.GetActiveScene().name == "ErdPShooterTest")
-        {
-            PlayerController_s.instance.stopMove = true;
-        }
-        else
-        {
-            PlayerController.instance.stopMove = true;
-        }     
-        /*PlayerController_s.instance.stopMove = true;
-        PlayerController.instance.stopMove = true;*/
-
+        PlayerController.instance.stopMove = true;
         UIManager.instance.fadeToBlack = true;
 
         yield return new WaitForSeconds(4f);

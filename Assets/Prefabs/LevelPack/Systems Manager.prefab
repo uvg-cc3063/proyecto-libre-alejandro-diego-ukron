@@ -1727,7 +1727,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: c801475a5a7738c4aa1f3202137bad9f, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2909,7 +2909,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1582404569311560812}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6da09af24ba0692408487fa4ad2890d8, type: 3}
   m_Name: 
@@ -2918,7 +2918,7 @@ MonoBehaviour:
   currentGoldGears: 0
   currentSilverGears: 0
   currentBronceGears: 0
-  levelEndMusic: 8
+  levelEndSFX: 8
   levelToLoad: LevelSelect
   isRespawning: 0
 --- !u!114 &1582404569311560815
@@ -2928,7 +2928,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1582404569311560812}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e02f4b4b1aa02841b9a72b926c0b1e8, type: 3}
   m_Name: 
