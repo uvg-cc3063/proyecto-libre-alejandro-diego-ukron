@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class LSLevelEntry : MonoBehaviour
 {
-    public string levelName, levelToCheck;
+    public string levelName, levelToCheck, displayName;
     private bool canLoadLevel, levelUnlocked;
 
     public GameObject mapPointActive, mapPointInactive;
@@ -28,6 +28,12 @@ public class LSLevelEntry : MonoBehaviour
             mapPointInactive.SetActive(true);
             levelUnlocked = false;
         }
+
+        if (PlayerPrefs.GetString("CurrentLevel") == levelName)
+        {
+            PlayerController.instance.transform.position = transform.position;
+            LSResetPosition.instance.respawnPosition = transform.position;
+        }
     }
 
     // Update is called once per frame
@@ -37,6 +43,7 @@ public class LSLevelEntry : MonoBehaviour
         {
             StartCoroutine(LevelLoadCo());
             levelLoading = true;
+
         }
     }
 
@@ -45,6 +52,43 @@ public class LSLevelEntry : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             canLoadLevel = true;
+            LSUIManager.instance.lNamePanel.SetActive(true);
+            LSUIManager.instance.lNameText.text = displayName;
+            if (PlayerPrefs.HasKey(levelName + "_coinsGold"))
+            {
+                LSUIManager.instance.coinsTextGold.text = PlayerPrefs.GetInt(levelName + "_coinsGold").ToString();
+                
+            }
+            else
+            {
+                LSUIManager.instance.coinsTextGold.text = "???";
+               
+            }
+
+            if (PlayerPrefs.HasKey(levelName + "_coinsSilver"))
+            {
+
+                LSUIManager.instance.coinsTextSilver.text = PlayerPrefs.GetInt(levelName + "_coinsSilver").ToString();
+
+            }
+            else
+            {
+
+                LSUIManager.instance.coinsTextSilver.text = "???";
+
+            }
+
+            if (PlayerPrefs.HasKey(levelName + "_coinsCupper"))
+            {
+
+                LSUIManager.instance.coinsTextCupper.text = PlayerPrefs.GetInt(levelName + "_coinsCupper").ToString();
+            }
+            else
+            {
+                LSUIManager.instance.coinsTextCupper.text = "???";
+            }
+
+
         }
     }
 
@@ -53,6 +97,8 @@ public class LSLevelEntry : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             canLoadLevel = false;
+            LSUIManager.instance.lNamePanel.SetActive(false);
+            LSUIManager.instance.lNameText.text = displayName;
         }
     }
 
@@ -62,5 +108,7 @@ public class LSLevelEntry : MonoBehaviour
         UIManager.instance.fadeToBlack = true;
         yield return new WaitForSeconds(2f);
         SceneManager.LoadScene(levelName);
+        //Variable para el nivel
+        PlayerPrefs.SetString("CurrentLevel", levelName);
     }
 }

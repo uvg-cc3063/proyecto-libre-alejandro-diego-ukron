@@ -5,6 +5,15 @@ using UnityEngine;
 
 public class LSResetPosition : MonoBehaviour
 {
+    public static LSResetPosition instance;
+
+    public Vector3 respawnPosition;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +29,7 @@ public class LSResetPosition : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             PlayerController.instance.gameObject.SetActive(false);
-            PlayerController.instance.transform.position = new Vector3(16.48f, 2, -3.12f);
+            PlayerController.instance.transform.position =respawnPosition;
             PlayerController.instance.gameObject.SetActive(true);
         }
     }

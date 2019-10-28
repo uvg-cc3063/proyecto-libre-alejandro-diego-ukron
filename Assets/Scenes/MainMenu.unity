@@ -263,6 +263,11 @@ MonoBehaviour:
   firstLevel: Test_Diego
   levelSelect: LevelSelect
   continueButton: {fileID: 315428045}
+  levelNames:
+  - Test_Ale
+  - Test_Diego
+  - Boss_test
+  - ErdPShotterTest
 --- !u!1 &226113847
 GameObject:
   m_ObjectHideFlags: 0
@@ -1865,12 +1870,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1582404569311560815, guid: 1d8aac2ca3e6d3c4ca5c0a5b60315cdd,
+    - target: {fileID: 1582404569311560814, guid: 1d8aac2ca3e6d3c4ca5c0a5b60315cdd,
         type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1582404569311560814, guid: 1d8aac2ca3e6d3c4ca5c0a5b60315cdd,
+    - target: {fileID: 1582404569311560815, guid: 1d8aac2ca3e6d3c4ca5c0a5b60315cdd,
         type: 3}
       propertyPath: m_Enabled
       value: 0
