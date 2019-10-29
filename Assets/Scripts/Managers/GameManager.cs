@@ -75,6 +75,7 @@ public class GameManager : MonoBehaviour
         CameraController.instance.theCMBrain.enabled = true;
 
         PlayerController.instance.gameObject.SetActive(true);
+        PlayerController.instance.stopMove = false;
 
     }
 
