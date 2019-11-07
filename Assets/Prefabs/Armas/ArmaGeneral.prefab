@@ -92,6 +92,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireRate: 0.3
   damage: 1
+  maxAmmo: 10
+  currentAmmo: 10
   firePoint: {fileID: 588601336}
   muzzleParticle: {fileID: 1649041701816229440}
   Proyectile: {fileID: 0}

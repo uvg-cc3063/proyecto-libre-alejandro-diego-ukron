@@ -41,25 +41,27 @@ public class GunDetection : MonoBehaviour
                 currentWeapon.gameObject.SetActive(true);
                 weapons.Add(WeaponToTake);
                 canGrabWeapon = false;
-                AudioManager.instance.PlaySfx(10);
+                AudioManager.instance.PlaySfx(10);  
             }
         }
-        else if (Input.GetKey(KeyCode.LeftControl))
+        else if (Input.GetKeyUp(KeyCode.LeftControl))
         {
             if (weapons.Count > 1)
             {
                 weaponNum++;
-                Debug.Log("numW: " + weaponNum);
-                if (weaponNum > weapons.Count)
+                if (weaponNum >= weapons.Count)
                 {
                     weaponNum = 0;
-                }                
+                }
+                
+                Debug.Log("numW: " + weaponNum);
                 currentWeapon = weapons[weaponNum];
                 for (int i = 0;i < weapons.Count;i++)
                 {
                     weapons[i].gameObject.SetActive(false);
                 }
                 currentWeapon.gameObject.SetActive(true);
+                currentWeapon.ActivateSound();
             }
         }
 
@@ -72,6 +74,31 @@ public class GunDetection : MonoBehaviour
             canGrabWeapon = true;
             WeaponToTake = other.gameObject.GetComponent<Gun>();
             Debug.Log("tRIGGER ENTER");
+        }
+        if(other.tag == "ammo")
+        {
+            Ammo ammo = other.gameObject.GetComponent<Ammo>();
+            if (ammo.type == Ammo.AmmoType.MORTARS)
+            {
+                for (int i = 0; i < weapons.Count; i++)
+                {
+                    if (weapons[i].type == Gun.GunType.MORTARS)
+                    {
+                        weapons[i].reloadWeapon(ammo.reloadAmount);
+                    }                    
+                }
+            }
+            else if (ammo.type == Ammo.AmmoType.SHOTGUN)
+            {
+                for (int i = 0; i < weapons.Count; i++)
+                {
+                    if (weapons[i].type == Gun.GunType.SHOTGUN)
+                    {
+                        weapons[i].reloadWeapon(ammo.reloadAmount);
+                    }
+                }
+            }
+            
         }
         
     }

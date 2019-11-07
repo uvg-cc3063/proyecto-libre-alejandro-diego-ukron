@@ -90,11 +90,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bd241290f88a26479f1f4bfef98ded2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 1
-  damage: 1
+  fireRate: 1.5
+  maxAmmo: 10
+  currentAmmo: 10
   firePoint: {fileID: 452662420}
   muzzleParticle: {fileID: 0}
-  Proyectile: {fileID: 0}
+  Proyectile: {fileID: 1940510978794001941, guid: f256a5abe33a6594da6b1364e38bb2ff,
+    type: 3}
   shotSpeed: 30
   targetImage: {fileID: 0}
   type: 1

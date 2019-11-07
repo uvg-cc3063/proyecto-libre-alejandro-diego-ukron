@@ -9,9 +9,9 @@ public class Gun : MonoBehaviour
     [Range(0.1f, 1.5f)]
     private float fireRate = 0.3f;
 
-    [SerializeField]
-    [Range(1, 10)]
-    private int damage = 1;
+    public int maxAmmo = 10;
+    public int currentAmmo;
+    //public float reloadTime = 1f;
 
     [SerializeField]
     private Transform firePoint;
@@ -35,6 +35,14 @@ public class Gun : MonoBehaviour
     public GameObject targetImage;
     public GunType type;
 
+    void Start()
+    {
+        /*if(type == GunType.SHOTGUN || type == GunType.MORTARS)
+        {
+            currentAmmo = maxAmmo;
+        }  */      
+    }
+
     void Update()
     {
         if (GetComponentInParent<PlayerController_s>() != null)
@@ -42,26 +50,20 @@ public class Gun : MonoBehaviour
             timer += Time.deltaTime;
             if (timer >= fireRate)
             {
-                /*if (Input.GetButton("Fire1"))
-                {
-                    timer = 0f;
-                    FireGun();
-                }*/
-                //if (Input.GetKeyDown(KeyCode.X))
+                                   
                 if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
-                    timer = 0f;
-                    FireGun();
-                }
-                //else if (Input.GetKeyUp(KeyCode.X))
-                else if (Input.GetKeyUp(KeyCode.Mouse0))
-                {
-                    //PlayerController_s.instance.stopShot();
-                }
-                /*else 
-                {
-                    PlayerController_s.instance.stopShot();
-                }*/
+                    if (currentAmmo > 0)
+                    {
+                        timer = 0f;
+                        FireGun();
+                    }
+                    else
+                    {
+                        AudioManager.instance.PlaySfx(24);
+                    }
+                }                               
+               
             }
         }        
     }
@@ -72,58 +74,93 @@ public class Gun : MonoBehaviour
         {
             targetImage.gameObject.SetActive(false);
             PlayerController_s.instance.Sword();
+            AudioManager.instance.PlaySfx(21);
         }
         else if (type == GunType.SHOTGUN)
         {
+            currentAmmo--;
             targetImage.gameObject.SetActive(true);
 
             //Debug.DrawRay(firePoint.position, firePoint.forward * 100, Color.red, 2f);
             PlayerController_s.instance.Shot();
             muzzleParticle.Play();
-            AudioManager.instance.PlaySfx(19);
+            AudioManager.instance.PlaySfx(20);
             //Ray ray = new Ray(firePoint.position, firePoint.forward);
             Ray ray = Camera.main.ViewportPointToRay(Vector3.one * 0.5f);
             Debug.DrawRay(ray.origin, ray.direction * 100, Color.red, 2f);
             RaycastHit hitInfo;
 
             //Disparo
-            //shotPrefab = Instantiate(Proyectile,firePoint.position,Quaternion.identity);
-            //shotPrefab.AddForce(firePoint.forward * 100 * shotSpeed);
-            Rigidbody shotPrefab = Instantiate(Proyectile, firePoint.position, Quaternion.identity);
-            Vector3 newPosition2 = new Vector3(firePoint.position.x + 0.5f, firePoint.position.y, firePoint.position.z);
+            float zpos = Random.Range(-1f, 1f);
+            float zpos2 = Random.Range(-1f, 1f);
+            float zpos3 = Random.Range(-1f, 1f);
+            float zpos4 = Random.Range(-1f, 1f);
+            float ypos = Random.Range(-0.5f, 0.5f);
+            float ypos2 = Random.Range(-0.5f, 0.5f);
+            float ypos3 = Random.Range(-0.5f, 0.5f);
+            float ypos4 = Random.Range(-0.5f, 0.5f);
+            float xpos = Random.Range(-0.5f, 0.5f);
+            float xpos2 = Random.Range(-0.5f, 0.5f);
+            float xpos3 = Random.Range(-0.5f, 0.5f);
+            float xpos4 = Random.Range(-0.5f, 0.5f);
+
+            Vector3 newPosition = new Vector3(firePoint.position.x + xpos, firePoint.position.y + ypos, firePoint.position.z + zpos);
+            Rigidbody shotPrefab = Instantiate(Proyectile, newPosition, Quaternion.identity);
+            Vector3 newPosition2 = new Vector3(firePoint.position.x + xpos2, firePoint.position.y + ypos2, firePoint.position.z + zpos2);
             Rigidbody shotPrefab2 = Instantiate(Proyectile, newPosition2, Quaternion.identity);
-            Vector3 newPosition3 = new Vector3(firePoint.position.x - 0.5f, firePoint.position.y, firePoint.position.z);
+            Vector3 newPosition3 = new Vector3(firePoint.position.x + xpos3, firePoint.position.y + ypos3, firePoint.position.z + zpos3);
             Rigidbody shotPrefab3 = Instantiate(Proyectile, newPosition3, Quaternion.identity);
-            //Vector3 newDirection = new Vector3(ray.direction.x, ray.direction.y + 50, ray.direction.z); //se trato de ajustar mira
-            shotPrefab.AddForce(ray.direction * 100 * shotSpeed);
-            shotPrefab2.AddForce(ray.direction * 100 * shotSpeed);
-            shotPrefab3.AddForce(ray.direction * 100 * shotSpeed);
-        }
-        else
+            Vector3 newPosition4 = new Vector3(firePoint.position.x + xpos4, firePoint.position.y + ypos4, firePoint.position.z + zpos4);
+            Rigidbody shotPrefab4 = Instantiate(Proyectile, newPosition4, Quaternion.identity);
+
+            if (Physics.Raycast(ray, out hitInfo, 100))
+            {
+                shotPrefab.AddForce((hitInfo.point - firePoint.position).normalized * 100 * shotSpeed);
+                shotPrefab2.AddForce((hitInfo.point - firePoint.position).normalized * 100 * shotSpeed);
+                shotPrefab3.AddForce((hitInfo.point - firePoint.position).normalized * 100 * shotSpeed);
+                shotPrefab4.AddForce((hitInfo.point - firePoint.position).normalized * 100 * shotSpeed);
+
+            }
+        }else if (type == GunType.MORTARS)
         {
             targetImage.gameObject.SetActive(true);
-
+            currentAmmo--;
             //Debug.DrawRay(firePoint.position, firePoint.forward * 100, Color.red, 2f);
             PlayerController_s.instance.Shot();
             muzzleParticle.Play();
             AudioManager.instance.PlaySfx(19);
-            //Ray ray = new Ray(firePoint.position, firePoint.forward);
             Ray ray = Camera.main.ViewportPointToRay(Vector3.one * 0.5f);
             Debug.DrawRay(ray.origin, ray.direction * 100, Color.red, 2f);
             RaycastHit hitInfo;
 
             //Disparo
             Rigidbody shotPrefab;
-            //shotPrefab = Instantiate(Proyectile,firePoint.position,Quaternion.identity);
-            //shotPrefab.AddForce(firePoint.forward * 100 * shotSpeed);
             shotPrefab = Instantiate(Proyectile, firePoint.position, Quaternion.identity);
-            //Vector3 newDirection = new Vector3(ray.direction.x, ray.direction.y + 50, ray.direction.z); //se trato de ajustar mira
-            shotPrefab.AddForce(ray.direction * 100 * shotSpeed);
-            //
 
             if (Physics.Raycast(ray, out hitInfo, 100))
             {
-                //var health = hitInfo.collider.GetComponent<Health>();
+                shotPrefab.AddForce((hitInfo.point - firePoint.position).normalized * 100 * shotSpeed);
+            }
+        }
+        else
+        {
+            targetImage.gameObject.SetActive(true);
+            //Debug.DrawRay(firePoint.position, firePoint.forward * 100, Color.red, 2f);
+            PlayerController_s.instance.Shot();
+            muzzleParticle.Play();
+            AudioManager.instance.PlaySfx(19);
+            Ray ray = Camera.main.ViewportPointToRay(Vector3.one * 0.5f);
+            Debug.DrawRay(ray.origin, ray.direction * 100, Color.red, 2f);
+            RaycastHit hitInfo;
+
+            //Disparo
+            Rigidbody shotPrefab;
+            shotPrefab = Instantiate(Proyectile, firePoint.position, Quaternion.identity);
+            
+            if (Physics.Raycast(ray, out hitInfo, 100))
+            {
+                shotPrefab.AddForce((hitInfo.point - firePoint.position).normalized *100* shotSpeed);
+
                 //Destroy(hitInfo.collider.gameObject);
                 /*if (health != null)
                     health.TakeDamage(damage);*/
@@ -139,5 +176,28 @@ public class Gun : MonoBehaviour
 
         //Instantiate(itemToDrop, transform.position + new Vector3(0, 0.5f, 0), transform.rotation);
 
+    }
+
+    public void ActivateSound()
+    {
+        if (type == GunType.SWORD)
+        {
+            AudioManager.instance.PlaySfx(23);
+        }
+        else
+        {
+            AudioManager.instance.PlaySfx(22);
+        }
+            
+    }
+
+    public void reloadWeapon(int reloadAmount)
+    {
+        currentAmmo += reloadAmount;
+        if (currentAmmo > maxAmmo)
+        {
+            currentAmmo = maxAmmo;
+        }
+        
     }
 }

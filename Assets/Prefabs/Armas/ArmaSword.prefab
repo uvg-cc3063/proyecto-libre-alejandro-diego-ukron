@@ -4829,8 +4829,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bd241290f88a26479f1f4bfef98ded2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 0.3
+  fireRate: 1.5
   damage: 1
+  maxAmmo: 10
+  currentAmmo: 10
   firePoint: {fileID: 1748571511}
   muzzleParticle: {fileID: 198000010555884938, guid: 95c9572b9dfb45a439e921fba994e8e0,
     type: 3}

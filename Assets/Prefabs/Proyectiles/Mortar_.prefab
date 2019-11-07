@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2366379428213559715}
   - component: {fileID: -5858039213977071982}
   - component: {fileID: 1125139773}
+  - component: {fileID: -3211509956450262606}
   m_Layer: 0
   m_Name: Mortar_
   m_TagString: Untagged
@@ -63,6 +64,18 @@ CapsuleCollider:
   m_Height: 0.6995466
   m_Direction: 0
   m_Center: {x: -0.052676857, y: 0.0019509792, z: 0}
+--- !u!114 &-3211509956450262606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5955170300699668793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 315c078a3e980744a8cf16e44589a521, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2238918371598490583
 PrefabInstance:
   m_ObjectHideFlags: 0
