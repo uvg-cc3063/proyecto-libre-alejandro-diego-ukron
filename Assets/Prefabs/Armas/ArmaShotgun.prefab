@@ -94,7 +94,8 @@ MonoBehaviour:
   maxAmmo: 10
   currentAmmo: 10
   firePoint: {fileID: 452662420}
-  muzzleParticle: {fileID: 0}
+  muzzleParticle: {fileID: 198000010555884938, guid: 95c9572b9dfb45a439e921fba994e8e0,
+    type: 3}
   Proyectile: {fileID: 1940510978794001941, guid: f256a5abe33a6594da6b1364e38bb2ff,
     type: 3}
   shotSpeed: 30

@@ -121,7 +121,15 @@ public class Gun : MonoBehaviour
                 shotPrefab4.AddForce((hitInfo.point - firePoint.position).normalized * 100 * shotSpeed);
 
             }
-        }else if (type == GunType.MORTARS)
+            else
+            {
+                shotPrefab.AddForce(ray.direction * 100 * shotSpeed);
+                shotPrefab2.AddForce(ray.direction * 100 * shotSpeed);
+                shotPrefab3.AddForce(ray.direction * 100 * shotSpeed);
+                shotPrefab4.AddForce(ray.direction * 100 * shotSpeed);
+            }
+        }
+        else if (type == GunType.MORTARS)
         {
             targetImage.gameObject.SetActive(true);
             currentAmmo--;
@@ -140,6 +148,10 @@ public class Gun : MonoBehaviour
             if (Physics.Raycast(ray, out hitInfo, 100))
             {
                 shotPrefab.AddForce((hitInfo.point - firePoint.position).normalized * 100 * shotSpeed);
+            }
+            else
+            {
+                shotPrefab.AddForce(ray.direction * 100 * shotSpeed);
             }
         }
         else
@@ -164,6 +176,10 @@ public class Gun : MonoBehaviour
                 //Destroy(hitInfo.collider.gameObject);
                 /*if (health != null)
                     health.TakeDamage(damage);*/
+            }
+            else
+            {
+                shotPrefab.AddForce(ray.direction * 100 * shotSpeed);
             }
         }                 
     }

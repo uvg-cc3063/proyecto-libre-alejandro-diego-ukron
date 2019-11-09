@@ -35,20 +35,20 @@ public class HealthManager : MonoBehaviour
         {
             invincCounter -= Time.deltaTime;
 
-            for (int i = 0; i < PlayerController.instance.playerPieces.Length; i++)
+            for (int i = 0; i < PlayerController_s.instance.playerPieces.Length; i++)
             {
                 if (Mathf.Floor(invincCounter * 5f) % 2 == 0) //even or odd number, for flashing
                 {
-                    PlayerController.instance.playerPieces[i].SetActive(true);
+                    PlayerController_s.instance.playerPieces[i].SetActive(true);
                 }
                 else
                 {
-                    PlayerController.instance.playerPieces[i].SetActive(false);
+                    PlayerController_s.instance.playerPieces[i].SetActive(false);
                 }
 
                 if (invincCounter <= 0)
                 {
-                    PlayerController.instance.playerPieces[i].SetActive(true);
+                    PlayerController_s.instance.playerPieces[i].SetActive(true);
                 }
             }
         }
@@ -68,8 +68,8 @@ public class HealthManager : MonoBehaviour
                 currentHealth = 0;
                 anim.SetBool("isDeath", true);
                 anim.SetTrigger("Death");
-                PlayerController.instance.Knockback();
-                PlayerController.instance.stopMove = true;
+                PlayerController_s.instance.Knockback();
+                PlayerController_s.instance.stopMove = true;
                 GameManager.instance.Respawn();
             }
             else
@@ -77,7 +77,7 @@ public class HealthManager : MonoBehaviour
                 AudioManager.instance.PlaySfx(soundHurt);
                 anim.SetTrigger("Hurt");
                 anim.SetBool("isDeath", false);
-                PlayerController.instance.Knockback();
+                PlayerController_s.instance.Knockback();
                 invincCounter = invincibleLength;
             }
 
@@ -92,8 +92,8 @@ public class HealthManager : MonoBehaviour
             currentHealth = 0;
             anim.SetBool("isDeath", true);
             anim.SetTrigger("Death");
-            PlayerController.instance.Knockback();
-            PlayerController.instance.stopMove = true;
+            PlayerController_s.instance.Knockback();
+            PlayerController_s.instance.stopMove = true;
             AudioManager.instance.PlaySfx(soundDeath);
             AudioManager.instance.PlaySfx(soundDeath2);
 

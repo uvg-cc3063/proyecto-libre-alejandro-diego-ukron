@@ -86,6 +86,8 @@ public class PlayerController : MonoBehaviour
 
                 playerModel.transform.rotation = Quaternion.Slerp(playerModel.transform.rotation, newRotation,
                     rotateSpeed * Time.deltaTime);
+
+
             }
         }
 

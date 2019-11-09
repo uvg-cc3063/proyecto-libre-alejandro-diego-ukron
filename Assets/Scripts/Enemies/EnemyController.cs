@@ -42,7 +42,7 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float distanceToPlayer = Vector3.Distance(transform.position, PlayerController.instance.transform.position);
+        float distanceToPlayer = Vector3.Distance(transform.position, PlayerController_s.instance.transform.position);
 
         switch (currentState)
         {
@@ -89,7 +89,7 @@ public class EnemyController : MonoBehaviour
 
                 break;
             case AIState.isChasing:
-                agent.SetDestination(PlayerController.instance.transform.position);
+                agent.SetDestination(PlayerController_s.instance.transform.position);
                 if (distanceToPlayer <= attackRange)
                 {
                     currentState = AIState.isAttacking;
@@ -112,7 +112,7 @@ public class EnemyController : MonoBehaviour
                 break;
             case AIState.isAttacking:
 
-                transform.LookAt(PlayerController.instance.transform, Vector3.up);
+                transform.LookAt(PlayerController_s.instance.transform, Vector3.up);
                 transform.rotation = Quaternion.Euler(0f, transform.rotation.eulerAngles.y, 0f);
 
                 attackCounter -= Time.deltaTime;
@@ -134,6 +134,7 @@ public class EnemyController : MonoBehaviour
             case AIState.isDeath:
                 if (isDeath == false)
                 {
+                    agent.velocity = Vector3.zero;
                     anim.SetTrigger("Death");
                     isDeath = true;
                 }

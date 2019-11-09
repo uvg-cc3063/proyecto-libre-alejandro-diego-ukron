@@ -31,7 +31,7 @@ public class LSLevelEntry : MonoBehaviour
 
         if (PlayerPrefs.GetString("CurrentLevel") == levelName)
         {
-            PlayerController.instance.transform.position = transform.position;
+            PlayerController_s.instance.transform.position = transform.position;
             LSResetPosition.instance.respawnPosition = transform.position;
         }
     }
@@ -104,7 +104,7 @@ public class LSLevelEntry : MonoBehaviour
 
     public IEnumerator LevelLoadCo()
     {
-        PlayerController.instance.stopMove = true;
+        PlayerController_s.instance.stopMove = true;
         UIManager.instance.fadeToBlack = true;
         yield return new WaitForSeconds(2f);
         SceneManager.LoadScene(levelName);

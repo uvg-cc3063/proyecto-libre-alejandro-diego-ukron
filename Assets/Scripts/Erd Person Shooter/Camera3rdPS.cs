@@ -22,10 +22,11 @@ public class Camera3rdPS : MonoBehaviour
         float horizontal = Input.GetAxis("Mouse X") * sensitivity;
         //--
         composer.m_TrackedObjectOffset.y += vertical;
-        composer.m_TrackedObjectOffset.y = Mathf.Clamp(composer.m_TrackedObjectOffset.y, -5, 2.5f);
+        composer.m_TrackedObjectOffset.y = Mathf.Clamp(composer.m_TrackedObjectOffset.y, -2.5f, 2.5f);
         //--
         composer.m_TrackedObjectOffset.x += horizontal;
-        composer.m_TrackedObjectOffset.x = Mathf.Clamp(composer.m_TrackedObjectOffset.x, -10, 10);
+        composer.m_TrackedObjectOffset.x = Mathf.Clamp(composer.m_TrackedObjectOffset.x, -5, 5);
         //--
+        //transform.rotation = Quaternion.Euler(0f, transform.rotation.eulerAngles.y, 0f);
     }
 }

@@ -70,10 +70,11 @@ GameObject:
   - component: {fileID: 3312906642385585221}
   - component: {fileID: 3312906642385585222}
   - component: {fileID: 3312906642385585220}
-  - component: {fileID: 2083810120}
+  - component: {fileID: 1967161123}
+  - component: {fileID: 1967161124}
   m_Layer: 0
   m_Name: RoboticBat
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -140,6 +141,7 @@ MonoBehaviour:
   chaseRange: 10
   attackRange: 1
   timeBetweenAttacks: 2
+  isDeath: 0
 --- !u!114 &3312906642385585220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,7 +160,20 @@ MonoBehaviour:
   itemToDrop: {fileID: 1346703081334450006, guid: 2d74f50abf6695c4c8f4e78491f2af76,
     type: 3}
   enemycontrol: {fileID: 3312906642385585222}
---- !u!136 &2083810120
+--- !u!65 &1967161123
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3312906642385585224}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.6645514, z: 1.5448594}
+  m_Center: {x: 0, y: 2.7539744, z: 0.52924687}
+--- !u!136 &1967161124
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -168,10 +183,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2.6376777
+  m_Radius: 0.2636363
+  m_Height: 1.9962931
   m_Direction: 1
-  m_Center: {x: -0, y: 1.5608728, z: -0}
+  m_Center: {x: 0, y: 1.3985791, z: 0.011255231}
 --- !u!1001 &3312906640809035646
 PrefabInstance:
   m_ObjectHideFlags: 0

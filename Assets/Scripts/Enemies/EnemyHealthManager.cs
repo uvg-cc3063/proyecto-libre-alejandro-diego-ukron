@@ -33,7 +33,8 @@ public class EnemyHealthManager : MonoBehaviour
             enemycontrol.currentState = EnemyController.AIState.isDeath;
             StartCoroutine(DestroyEnemy());
 
-            PlayerController.instance.Bounce();
+            //PlayerController_s.instance.Bounce();
+
             //Instantiate(deathEffect, transform.position + new Vector3(0, 1.2f, 0), transform.rotation); //EXPLOSION
             
         }

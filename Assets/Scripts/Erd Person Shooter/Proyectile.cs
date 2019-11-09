@@ -32,5 +32,9 @@ public class Proyectile : MonoBehaviour {
         {
             DestroyOnHit();
         }
+        if (other.tag == "Enemy")
+        {
+            DestroyOnHit();
+        }
     }
 }

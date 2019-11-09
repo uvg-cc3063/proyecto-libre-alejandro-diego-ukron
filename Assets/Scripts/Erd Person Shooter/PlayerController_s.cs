@@ -15,7 +15,7 @@ public class PlayerController_s : MonoBehaviour
 
     public CharacterController charController;
 
-    ///private Camera theCam;
+    private Camera theCam;
 
     public GameObject playerModel;
     public float rotateSpeed;
@@ -33,7 +33,14 @@ public class PlayerController_s : MonoBehaviour
     public GameObject[] playerPieces;
 
     public bool stopMove;
-    
+
+
+    [SerializeField]
+    private float forwardMoveSpeed = 7.5f;
+    [SerializeField]
+    private float backwardMoveSpeed = 3;
+    [SerializeField]
+    private float turnSpeed = 150f;
 
     private void Awake()
     {
@@ -43,7 +50,7 @@ public class PlayerController_s : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ///theCam = Camera.main; //gets the main camera in the scene
+        theCam = Camera.main; //gets the main camera in the scene
     }
 
     // Update is called once per frame
@@ -52,11 +59,10 @@ public class PlayerController_s : MonoBehaviour
         if (!isKnocking && !stopMove)
         {
             float yStore = moveDirection.y; //8. Adding Gravity        
-            //moveDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical")); //GetAxisRaw = gets what's been pressed at the moment
-            //12. Moving based on camera rotation. Our vertical input (z.axis) is going to control wether we are facing forward or not.
-            moveDirection = (transform.forward * Input.GetAxisRaw("Vertical")) +
-                            //(transform.right * Input.GetAxisRaw("Mouse X"));
-            (transform.right * Input.GetAxisRaw("Horizontal"));
+            
+            moveDirection = (transform.forward * Input.GetAxisRaw("Vertical")) + (transform.right * Input.GetAxisRaw("Horizontal"));
+           
+
             moveDirection.Normalize(); //make the speed of movement the same all the time.
             moveDirection = moveDirection * moveSpeed; //This multiplication makes moveDirection changes its symbol "-" or "+"
             moveDirection.y = yStore; //The y component of the move direction is updated so the y's position doesnt become 0 so fast.
@@ -74,12 +80,10 @@ public class PlayerController_s : MonoBehaviour
 
             moveDirection.y += Physics.gravity.y * Time.deltaTime * gravityScale; //Adding gravity
 
-            //transform.position = transform.position + (moveDirection * Time.deltaTime * moveSpeed); //Delta time is used to make the speed constant in every computer where the game is tested.
+
             charController.Move(moveDirection * Time.deltaTime);
 
-            //10. Rotating the player with the camera
-            //if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
-            if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
+            /*if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
             {
                 //transform.rotation = Quaternion.Euler(0f, theCam.transform.rotation.eulerAngles.y, 0f);
                 Quaternion newRotation = Quaternion.LookRotation(new Vector3(moveDirection.x, 0f, moveDirection.z));
@@ -93,14 +97,30 @@ public class PlayerController_s : MonoBehaviour
             if (Input.GetAxis("Mouse X") != 0)
             {
                 var Xmouse = Input.GetAxis("Mouse X");
+                transform.rotation = Quaternion.Euler(0f, theCam.transform.rotation.eulerAngles.y, 0f);
                 Quaternion mouseRotation = Quaternion.LookRotation(new Vector3(Xmouse, 0f, moveDirection.z));
                 playerModel.transform.rotation = Quaternion.Slerp(playerModel.transform.rotation, mouseRotation,
                         rotateSpeed * Time.deltaTime);
-            }
-            
-            //playerModel.transform.Rotate(Vector3.up, Xmouse * rotateSpeed * Time.deltaTime);
 
-            
+            }
+            */
+
+            var horizontal = Input.GetAxis("Mouse X");
+            var vertical = Input.GetAxis("Vertical");
+
+            var movement = new Vector3(horizontal, 0, vertical);
+
+            transform.Rotate(Vector3.up, horizontal * turnSpeed * Time.deltaTime);
+
+            if (vertical != 0)
+            {
+                float moveSpeedToUse = (vertical > 0) ? forwardMoveSpeed : backwardMoveSpeed;
+
+                //charController.SimpleMove(transform.forward * moveSpeedToUse * vertical);
+
+                charController.SimpleMove(moveDirection *moveSpeedToUse *Time.deltaTime);
+            }
+
         }
 
         //THE PLAYER IS BEING KNOCKED BACK.
