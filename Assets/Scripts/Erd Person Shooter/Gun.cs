@@ -32,7 +32,6 @@ public class Gun : MonoBehaviour
         SWORD
     }
 
-    public GameObject targetImage;
     public GunType type;
 
     void Start()
@@ -65,6 +64,7 @@ public class Gun : MonoBehaviour
                 }                               
                
             }
+            UIManager.instance.UpdateAmmoBar(currentAmmo, maxAmmo);
         }        
     }
 
@@ -72,14 +72,12 @@ public class Gun : MonoBehaviour
     {        
         if (type == GunType.SWORD)
         {
-            targetImage.gameObject.SetActive(false);
             PlayerController_s.instance.Sword();
-            AudioManager.instance.PlaySfx(21);
+            AudioManager.instance.PlaySfx(21);            
         }
         else if (type == GunType.SHOTGUN)
         {
-            currentAmmo--;
-            targetImage.gameObject.SetActive(true);
+            currentAmmo--;            
 
             //Debug.DrawRay(firePoint.position, firePoint.forward * 100, Color.red, 2f);
             PlayerController_s.instance.Shot();
@@ -131,8 +129,8 @@ public class Gun : MonoBehaviour
         }
         else if (type == GunType.MORTARS)
         {
-            targetImage.gameObject.SetActive(true);
             currentAmmo--;
+
             //Debug.DrawRay(firePoint.position, firePoint.forward * 100, Color.red, 2f);
             PlayerController_s.instance.Shot();
             muzzleParticle.Play();
@@ -156,7 +154,8 @@ public class Gun : MonoBehaviour
         }
         else
         {
-            targetImage.gameObject.SetActive(true);
+            UIManager.instance.ChangeWeapon(0);
+
             //Debug.DrawRay(firePoint.position, firePoint.forward * 100, Color.red, 2f);
             PlayerController_s.instance.Shot();
             muzzleParticle.Play();

@@ -4763,7 +4763,7 @@ GameObject:
   - component: {fileID: 1748571511}
   m_Layer: 0
   m_Name: DefaultFP
-  m_TagString: Untagged
+  m_TagString: weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4794,8 +4794,6 @@ GameObject:
   - component: {fileID: 6341665269874589528}
   - component: {fileID: 987761962}
   - component: {fileID: 987761961}
-  - component: {fileID: 386630067}
-  - component: {fileID: -5909228671301743954}
   m_Layer: 0
   m_Name: ArmaSword
   m_TagString: weapon
@@ -4855,31 +4853,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.6498226
   m_Center: {x: 0, y: 0.26507056, z: 0}
---- !u!65 &386630067
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5391851712212307852}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3501253, y: 1.3835332, z: 0.38208485}
-  m_Center: {x: 0.047941685, y: -1.203868, z: -0.08522987}
---- !u!114 &-5909228671301743954
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5391851712212307852}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea73478d317558c40a9f41a87ccb6c98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &5837668715956680234
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -23,6 +23,10 @@ public class UIManager : MonoBehaviour
 
     public string mainMenu, levelSelect;
 
+    public Image[] weaponImages;
+    public Image AimImage;
+    public Image ArmorBar;
+
     private void Awake()
     {
         instance = this;
@@ -91,4 +95,31 @@ public class UIManager : MonoBehaviour
     {
         AudioManager.instance.SetSfxLevel();
     }
+
+    public void ChangeWeapon(int WeaponIndex)
+    {
+        if(WeaponIndex == 3)
+        {
+            AimImage.gameObject.SetActive(false);
+        }
+        else
+        {
+            AimImage.gameObject.SetActive(true);
+        }
+
+        for(int i = 0; i < weaponImages.Length; i++)
+        {
+            weaponImages[i].gameObject.SetActive(false);
+        }
+        weaponImages[WeaponIndex].gameObject.SetActive(true);
+    }
+
+    public void UpdateAmmoBar(int currentAmmo, int MaxAmount)
+    {
+        float conv = currentAmmo * 1f / MaxAmount;
+        Debug.Log("conv; " + conv);
+        ArmorBar.fillAmount = conv;
+    }
+
+
 }

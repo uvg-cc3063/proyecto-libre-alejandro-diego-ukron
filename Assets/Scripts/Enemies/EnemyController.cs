@@ -20,6 +20,7 @@ public class EnemyController : MonoBehaviour
         isAttacking,
         isDeath,
         isSleep,
+        isBeingHited
     };
     public AIState currentState;
 
@@ -29,8 +30,13 @@ public class EnemyController : MonoBehaviour
     public float chaseRange;
 
     public float attackRange = 1f;
-    public float timeBetweenAttacks = 2f;
+    public float timeBetweenAttacks = 2f;    
     private float attackCounter;
+
+    public float HitTimer = 1.5f;
+    public float HitElapsedTime = 0;
+    public bool hitted = false;
+
     public bool isDeath = false;
 
     // Start is called before the first frame update
@@ -93,10 +99,20 @@ public class EnemyController : MonoBehaviour
                 if (distanceToPlayer <= attackRange)
                 {
                     currentState = AIState.isAttacking;
-                    anim.SetTrigger("Attack2");
+                    float ran = Random.Range(0, 2);
+                    Debug.Log("ran: " + ran);
+                    if(ran == 0)
+                    {
+                        anim.SetTrigger("Attack1");
+                    }
+                    else if(ran == 1)
+                    {
+                        anim.SetTrigger("Attack2");
+                    }                    
+
                     anim.SetBool("IsMoving", false);
                     agent.velocity = Vector3.zero;
-                    agent.isStopped = true;
+                    //agent.isStopped = true;
 
                     attackCounter = timeBetweenAttacks;
                 }
@@ -131,10 +147,19 @@ public class EnemyController : MonoBehaviour
                     }
                 }
                 break;
+            case AIState.isBeingHited:
+                
+                agent.velocity = Vector3.zero;
+                //agent.isStopped = true;
+                anim.SetTrigger("Hit");     
+                HitElapsedTime = 0;
+                currentState = AIState.isIdle;
+                break;
             case AIState.isDeath:
                 if (isDeath == false)
                 {
                     agent.velocity = Vector3.zero;
+                    agent.isStopped = true;
                     anim.SetTrigger("Death");
                     isDeath = true;
                 }

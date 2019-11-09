@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1940510978794001941}
   - component: {fileID: 4587214901997516388}
   - component: {fileID: -2512145414277237417}
-  - component: {fileID: -7285912660375679090}
   m_Layer: 0
   m_Name: GunShot
   m_TagString: gshot
@@ -79,18 +78,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DestroyEffect: {fileID: 2466861595334823764, guid: bf7af57f94d496d448592d520dc93629,
     type: 3}
---- !u!114 &-7285912660375679090
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6128112691862714844}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea73478d317558c40a9f41a87ccb6c98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &8563747786241355018
 PrefabInstance:
   m_ObjectHideFlags: 0

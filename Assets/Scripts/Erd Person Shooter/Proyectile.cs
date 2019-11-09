@@ -35,6 +35,7 @@ public class Proyectile : MonoBehaviour {
         if (other.tag == "Enemy")
         {
             DestroyOnHit();
+            other.GetComponent<EnemyHealthManager>().TakeDamage();
         }
     }
 }

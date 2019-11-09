@@ -54,5 +54,14 @@ public class Mortar : MonoBehaviour
         {
             Grounded = true;
         }
+        if (other.tag == "Enemy")
+        {
+            other.GetComponent<EnemyHealthManager>().KillEnemy();
+            Instantiate(ExplotionEffect, transform.position, transform.rotation);
+            GetComponents<Collider>()[0].enabled = true;
+            GetComponents<Collider>()[1].enabled = true;
+            GetComponents<Collider>()[2].enabled = true;
+            Destroy(gameObject);            
+        }
     }
 }

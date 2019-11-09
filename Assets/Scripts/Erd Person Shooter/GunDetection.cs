@@ -41,7 +41,8 @@ public class GunDetection : MonoBehaviour
                 currentWeapon.gameObject.SetActive(true);
                 weapons.Add(WeaponToTake);
                 canGrabWeapon = false;
-                AudioManager.instance.PlaySfx(10);  
+                AudioManager.instance.PlaySfx(10);
+                ChangeUIWeapon(currentWeapon);
             }
         }
         else if (Input.GetKeyUp(KeyCode.LeftControl))
@@ -62,6 +63,7 @@ public class GunDetection : MonoBehaviour
                 }
                 currentWeapon.gameObject.SetActive(true);
                 currentWeapon.ActivateSound();
+                ChangeUIWeapon(currentWeapon);
             }
         }
 
@@ -130,6 +132,26 @@ public class GunDetection : MonoBehaviour
     private void DeactivateColliderOfDefoultfW()
     {
         weapons[0].gameObject.GetComponent<Collider>().enabled=false;
+    }
+
+    public void ChangeUIWeapon(Gun currentWeaponn)
+    {
+        if (currentWeaponn.type == Gun.GunType.SWORD)
+        {
+            UIManager.instance.ChangeWeapon(3);
+        }
+        else if (currentWeaponn.type == Gun.GunType.SHOTGUN)
+        {
+            UIManager.instance.ChangeWeapon(1);
+        }
+        else if (currentWeaponn.type == Gun.GunType.MORTARS)
+        {
+            UIManager.instance.ChangeWeapon(2);
+        }
+        else if (currentWeaponn.type == Gun.GunType.NORMAL)
+        {
+            UIManager.instance.ChangeWeapon(0);
+        }
     }
    
 }
