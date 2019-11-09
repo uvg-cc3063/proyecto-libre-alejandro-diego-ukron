@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4166984951049490376}
   m_Layer: 0
   m_Name: NormalShot_
-  m_TagString: Untagged
+  m_TagString: nshot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,6 +96,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 315c078a3e980744a8cf16e44589a521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DestroyEffect: {fileID: 8276250530785963653, guid: 8107ce3c541e0a34c9043662580fae13,
+    type: 3}
 --- !u!1001 &5292156839419215174
 PrefabInstance:
   m_ObjectHideFlags: 0

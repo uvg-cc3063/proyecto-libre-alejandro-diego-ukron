@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -2512145414277237417}
   m_Layer: 0
   m_Name: GunShot
-  m_TagString: Untagged
+  m_TagString: gshot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6128112691862714844}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -2.04, y: 2.454, z: 3.384}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 3720606557913581072}
@@ -76,6 +76,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 315c078a3e980744a8cf16e44589a521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DestroyEffect: {fileID: 2466861595334823764, guid: bf7af57f94d496d448592d520dc93629,
+    type: 3}
 --- !u!1001 &8563747786241355018
 PrefabInstance:
   m_ObjectHideFlags: 0

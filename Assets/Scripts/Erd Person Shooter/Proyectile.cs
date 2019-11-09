@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Proyectile : MonoBehaviour {
 
+    public GameObject DestroyEffect;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         transform.localRotation = Quaternion.Euler(0, -90, 0);
     }
 	
@@ -16,6 +17,20 @@ public class Proyectile : MonoBehaviour {
         if (distanceToCamera > 100)
         {
             Destroy(gameObject);
+        }
+    }
+
+    public void DestroyOnHit()
+    {                
+        Instantiate(DestroyEffect, transform.position, transform.rotation);
+        Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Environment")
+        {
+            DestroyOnHit();
         }
     }
 }

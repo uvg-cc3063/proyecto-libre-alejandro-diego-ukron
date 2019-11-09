@@ -85,7 +85,13 @@ public class GunDetection : MonoBehaviour
                     if (weapons[i].type == Gun.GunType.MORTARS)
                     {
                         weapons[i].reloadWeapon(ammo.reloadAmount);
-                    }                    
+                        Debug.Log("Reloaded mortars");
+                        ammo.DestroyAmmo();
+                    }
+                    else
+                    {
+                        Debug.Log("No Mortats in weapons list");
+                    }
                 }
             }
             else if (ammo.type == Ammo.AmmoType.SHOTGUN)
@@ -95,8 +101,15 @@ public class GunDetection : MonoBehaviour
                     if (weapons[i].type == Gun.GunType.SHOTGUN)
                     {
                         weapons[i].reloadWeapon(ammo.reloadAmount);
+                        Debug.Log("Reloaded shutgun");
+                        ammo.DestroyAmmo();
+                    }
+                    else
+                    {
+                        Debug.Log("No shutgun in weapons list");
                     }
                 }
+
             }
             
         }

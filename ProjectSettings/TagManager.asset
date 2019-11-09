@@ -6,6 +6,12 @@ TagManager:
   tags:
   - Enemy
   - weapon
+  - ammo
+  - ground
+  - environment
+  - nshot
+  - gshot
+  - mortar
   layers:
   - Default
   - TransparentFX
