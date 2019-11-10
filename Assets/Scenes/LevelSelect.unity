@@ -381,6 +381,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 468377216424272716, guid: db5f776d94040a84bafcc41629cfde34,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 468377216424272714, guid: db5f776d94040a84bafcc41629cfde34,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5037,6 +5042,9 @@ MonoBehaviour:
   sfxVolSlider: {fileID: 3190428053024723847}
   mainMenu: MainMenu
   levelSelect: LevelSelect
+  weaponImages: []
+  AimImage: {fileID: 0}
+  ArmorBar: {fileID: 0}
 --- !u!1 &2288207098507279219
 GameObject:
   m_ObjectHideFlags: 0

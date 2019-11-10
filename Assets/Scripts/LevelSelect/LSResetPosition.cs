@@ -28,9 +28,9 @@ public class LSResetPosition : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            PlayerController_s.instance.gameObject.SetActive(false);
-            PlayerController_s.instance.transform.position =respawnPosition;
-            PlayerController_s.instance.gameObject.SetActive(true);
+            PlayerController.instance.gameObject.SetActive(false);
+            PlayerController.instance.transform.position =respawnPosition;
+            PlayerController.instance.gameObject.SetActive(true);
         }
     }
 }

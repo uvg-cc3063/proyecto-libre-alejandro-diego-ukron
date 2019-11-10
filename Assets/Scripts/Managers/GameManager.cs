@@ -32,7 +32,15 @@ public class GameManager : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
-        respawnPosition = PlayerController_s.instance.transform.position;
+        if(SceneManager.GetActiveScene().name == "LevelSelect")
+        {
+            respawnPosition = PlayerController.instance.transform.position;
+        }
+        else
+        {
+            respawnPosition = PlayerController_s.instance.transform.position;
+        }
+        
 
         //AddCoins(0);
     }
@@ -65,16 +73,34 @@ public class GameManager : MonoBehaviour
         //Instantiate(deathEffect, PlayerController.instance.transform.position + new Vector3(0f, 1f, 0f), PlayerController.instance.transform.rotation);
         yield return new WaitForSeconds(3f); //after two seconds the player is respawn to its original position.
 
-        PlayerController_s.instance.gameObject.SetActive(false);
-        isRespawning = true;
-        HealthManager.instance.ResetHealth();
-        UIManager.instance.fadeFromBlack = true;
+        if (SceneManager.GetActiveScene().name == "LevelSelect")
+        {
+            PlayerController.instance.gameObject.SetActive(false);
+            isRespawning = true;
+            HealthManager.instance.ResetHealth();
+            UIManager.instance.fadeFromBlack = true;
 
-        PlayerController_s.instance.transform.position = respawnPosition;
-        CameraController.instance.theCMBrain.enabled = true;
+            PlayerController.instance.transform.position = respawnPosition;
+            CameraController.instance.theCMBrain.enabled = true;
 
-        PlayerController_s.instance.gameObject.SetActive(true);
-        PlayerController_s.instance.stopMove = false;
+            PlayerController.instance.gameObject.SetActive(true);
+            PlayerController.instance.stopMove = false;
+        }
+        else
+        {
+            PlayerController_s.instance.gameObject.SetActive(false);
+            isRespawning = true;
+            HealthManager.instance.ResetHealth();
+            UIManager.instance.fadeFromBlack = true;
+
+            PlayerController_s.instance.transform.position = respawnPosition;
+            CameraController.instance.theCMBrain.enabled = true;
+
+            PlayerController_s.instance.gameObject.SetActive(true);
+            PlayerController_s.instance.stopMove = false;
+        }
+
+        
 
     }
 
@@ -129,7 +155,17 @@ public class GameManager : MonoBehaviour
     {
         //AudioManager.instance.PlayMusic(levelEndMusic);
         AudioManager.instance.StopAllSFX();
-        PlayerController_s.instance.stopMove = true;
+
+        
+        if (SceneManager.GetActiveScene().name == "LevelSelect")
+        {
+            PlayerController.instance.stopMove = true;
+        }
+        else
+        {
+            PlayerController_s.instance.stopMove = true;
+        }
+
         UIManager.instance.fadeToBlack = true;
 
         yield return new WaitForSeconds(4f);

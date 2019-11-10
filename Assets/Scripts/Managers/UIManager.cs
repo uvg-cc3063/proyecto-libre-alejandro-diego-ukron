@@ -117,7 +117,7 @@ public class UIManager : MonoBehaviour
     public void UpdateAmmoBar(int currentAmmo, int MaxAmount)
     {
         float conv = currentAmmo * 1f / MaxAmount;
-        Debug.Log("conv; " + conv);
+        //Debug.Log("conv; " + conv);
         ArmorBar.fillAmount = conv;
     }
 

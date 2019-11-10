@@ -18,7 +18,7 @@ public class PlayerController_s : MonoBehaviour
     private Camera theCam;
 
     public GameObject playerModel;
-    public float rotateSpeed;
+    //public float rotateSpeed;
 
     public Animator anim;
 
@@ -120,6 +120,7 @@ public class PlayerController_s : MonoBehaviour
 
                 charController.SimpleMove(moveDirection *moveSpeedToUse *Time.deltaTime);
             }
+            
 
         }
 

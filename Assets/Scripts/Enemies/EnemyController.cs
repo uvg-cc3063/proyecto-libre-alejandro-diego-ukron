@@ -157,7 +157,11 @@ public class EnemyController : MonoBehaviour
                 break;
             case AIState.isDeath:
                 if (isDeath == false)
-                {
+                {                    
+                    for(int i=0;i< GetComponents<Collider>().Length; i++)
+                    {
+                        GetComponents<Collider>()[i].enabled = false;
+                    }                    
                     agent.velocity = Vector3.zero;
                     agent.isStopped = true;
                     anim.SetTrigger("Death");
