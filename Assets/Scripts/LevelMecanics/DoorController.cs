@@ -22,11 +22,11 @@ public class DoorController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (theButton.isPressed)
+        if (!theButton.isPressed)
         {
             theDoor.rotation = Quaternion.Slerp(theDoor.rotation, openRot.rotation, openSpeed * Time.deltaTime);
         }
-        else
+        else if (theButton.isPressed)
         {
             theDoor.rotation = Quaternion.Slerp(theDoor.rotation, startRot, openSpeed * Time.deltaTime);
 

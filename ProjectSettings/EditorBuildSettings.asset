@@ -29,7 +29,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LevelPackTest.unity
     guid: 1d5831f45175c05418ac65383acbff87
+  - enabled: 0
+    path: Assets/__DELETED_GUID_Trash/92c3d5308c3f88d49a71b799af2ab4ca
+    guid: 92c3d5308c3f88d49a71b799af2ab4ca
   - enabled: 1
     path: Assets/Scenes/Tutorial_Scene.unity
-    guid: 92c3d5308c3f88d49a71b799af2ab4ca
+    guid: 37444a325ddaf56458b1c59c99122d92
   m_configObjects: {}
