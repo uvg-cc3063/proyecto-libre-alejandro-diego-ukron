@@ -2798,7 +2798,7 @@ PrefabInstance:
     - target: {fileID: 6094851721505178291, guid: 1327ac7ca81213b489a93909f5205fc3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.4
+      value: 11.02
       objectReference: {fileID: 0}
     - target: {fileID: 6094851721505178291, guid: 1327ac7ca81213b489a93909f5205fc3,
         type: 3}
@@ -2808,7 +2808,7 @@ PrefabInstance:
     - target: {fileID: 6094851721505178291, guid: 1327ac7ca81213b489a93909f5205fc3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.74
+      value: 7.96
       objectReference: {fileID: 0}
     - target: {fileID: 6094851721505178291, guid: 1327ac7ca81213b489a93909f5205fc3,
         type: 3}
@@ -2870,11 +2870,11 @@ PrefabInstance:
       propertyPath: patrolPoints.Array.data[3]
       value: 
       objectReference: {fileID: 59920007}
-    - target: {fileID: 9180012066947154156, guid: 1327ac7ca81213b489a93909f5205fc3,
+    - target: {fileID: 5355482070037353924, guid: 1327ac7ca81213b489a93909f5205fc3,
         type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 20f2a3b2320ce4c4fa06e23533df82f8, type: 2}
+      propertyPath: deathSound
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1327ac7ca81213b489a93909f5205fc3, type: 3}
 --- !u!1001 &6453989267009726721
