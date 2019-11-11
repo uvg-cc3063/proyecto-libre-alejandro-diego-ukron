@@ -32,17 +32,17 @@ public class EnemyController : MonoBehaviour
     public float attackRange = 1f;
     public float timeBetweenAttacks = 2f;    
     private float attackCounter;
-
-    public float HitTimer = 1.5f;
-    public float HitElapsedTime = 0;
-    public bool hitted = false;
+    private float NormalAgentSpeed;
 
     public bool isDeath = false;
 
+    public GameObject EnemyAnimatedBody;
     // Start is called before the first frame update
     void Start()
     {
         waitCounter = waitAtPoint;
+        NormalAgentSpeed = agent.speed;
+        
     }
 
     // Update is called once per frame
@@ -98,9 +98,10 @@ public class EnemyController : MonoBehaviour
                 agent.SetDestination(PlayerController_s.instance.transform.position);
                 if (distanceToPlayer <= attackRange)
                 {
+                    //agent.speed = agent.speed * 500;
+                    //Debug.Log("agent.speed: " + agent.speed);
                     currentState = AIState.isAttacking;
                     float ran = Random.Range(0, 2);
-                    Debug.Log("ran: " + ran);
                     if(ran == 0)
                     {
                         anim.SetTrigger("Attack1");
@@ -111,7 +112,8 @@ public class EnemyController : MonoBehaviour
                     }                    
 
                     anim.SetBool("IsMoving", false);
-                    agent.velocity = Vector3.zero;
+                    //agent.speed = NormalAgentSpeed;
+                    //agent.velocity = Vector3.zero;
                     //agent.isStopped = true;
 
                     attackCounter = timeBetweenAttacks;
@@ -121,7 +123,7 @@ public class EnemyController : MonoBehaviour
                 {
                     currentState = AIState.isIdle;
                     waitCounter = waitAtPoint;
-                    agent.velocity = Vector3.zero;
+                    //agent.velocity = Vector3.zero;
                     agent.SetDestination(transform.position);
                 }
 
@@ -152,7 +154,6 @@ public class EnemyController : MonoBehaviour
                 agent.velocity = Vector3.zero;
                 //agent.isStopped = true;
                 anim.SetTrigger("Hit");     
-                HitElapsedTime = 0;
                 currentState = AIState.isIdle;
                 break;
             case AIState.isDeath:
@@ -166,6 +167,10 @@ public class EnemyController : MonoBehaviour
                     agent.isStopped = true;
                     anim.SetTrigger("Death");
                     isDeath = true;
+                    if(EnemyAnimatedBody.transform.position.y > 0)
+                    {
+                        EnemyAnimatedBody.transform.position = new Vector3(EnemyAnimatedBody.transform.position.x, 0, EnemyAnimatedBody.transform.position.z);
+                    }
                 }
                 
                 break;

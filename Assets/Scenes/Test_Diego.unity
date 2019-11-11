@@ -2597,11 +2597,6 @@ PrefabInstance:
       propertyPath: patrolPoints.Array.data[3]
       value: 
       objectReference: {fileID: 16570415}
-    - target: {fileID: 3312906642385585222, guid: c06267cb9de397c4ea17037e2c1fa38e,
-        type: 3}
-      propertyPath: HitTimer
-      value: 0.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c06267cb9de397c4ea17037e2c1fa38e, type: 3}
 --- !u!1 &3422952723847114365
@@ -2870,11 +2865,6 @@ PrefabInstance:
       propertyPath: patrolPoints.Array.data[3]
       value: 
       objectReference: {fileID: 59920007}
-    - target: {fileID: 5355482070037353924, guid: 1327ac7ca81213b489a93909f5205fc3,
-        type: 3}
-      propertyPath: deathSound
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1327ac7ca81213b489a93909f5205fc3, type: 3}
 --- !u!1001 &6453989267009726721
