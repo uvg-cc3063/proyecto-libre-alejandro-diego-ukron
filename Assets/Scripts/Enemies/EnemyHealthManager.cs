@@ -50,14 +50,15 @@ public class EnemyHealthManager : MonoBehaviour
     public void KillEnemy()
     {
         currentHealth = 0;
+        /*
+        enemycontrol.currentState = EnemyController.AIState.isDeath;
+        StartCoroutine(DestroyEnemy());
+        AudioManager.instance.PlaySfx(deathSound);*/
+        TakeDamage();
 
-            enemycontrol.currentState = EnemyController.AIState.isDeath;
-            StartCoroutine(DestroyEnemy());
-            AudioManager.instance.PlaySfx(deathSound);
+        //PlayerController_s.instance.Bounce();
 
-            //PlayerController_s.instance.Bounce();
-
-            //Instantiate(deathEffect, transform.position + new Vector3(0, 1.2f, 0), transform.rotation); //EXPLOSION
+        //Instantiate(deathEffect, transform.position + new Vector3(0, 1.2f, 0), transform.rotation); //EXPLOSION
 
     }
 

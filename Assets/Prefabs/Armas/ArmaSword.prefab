@@ -4838,7 +4838,6 @@ MonoBehaviour:
   Proyectile: {fileID: -6537225744810293671, guid: bc9573ee97bc6fa4aab57281c9f422d9,
     type: 3}
   shotSpeed: 0
-  targetImage: {fileID: 0}
   type: 3
 --- !u!135 &987761961
 SphereCollider:
@@ -4851,7 +4850,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.6498226
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0.26507056, z: 0}
 --- !u!1001 &5837668715956680234
 PrefabInstance:

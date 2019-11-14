@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Sword : MonoBehaviour
 {
+    public GameObject HitEffect;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,8 +21,10 @@ public class Sword : MonoBehaviour
     {
         if (other.tag == "Enemy")
         {
+            Quaternion newRot = Quaternion.Euler(90,180,180);
+            Instantiate(HitEffect,transform.position, newRot);
+            
             other.GetComponent<EnemyHealthManager>().KillEnemy();
-            Debug.Log("killed with swrod");
         }
     }
 }

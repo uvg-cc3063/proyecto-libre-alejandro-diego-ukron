@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8160499031380551250}
-  - component: {fileID: -4503274718825633434}
   m_Layer: 0
   m_Name: HealthEffect_Edit
   m_TagString: Untagged
@@ -32,20 +31,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-4503274718825633434
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8160499031380551251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e4eb268b2d8da04cb7a814a6edb439d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timer: 2
-  elapsedTime: 0
 --- !u!1 &8160499031553313715
 GameObject:
   m_ObjectHideFlags: 0
@@ -71,13 +56,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8160499031553313715}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.6404998, y: -0.29959983, z: -0.29959983, w: 0.6404998}
+  m_LocalPosition: {x: -6.9, y: -0.3, z: 11.1}
+  m_LocalScale: {x: 1.78, y: 1, z: 10}
   m_Children: []
   m_Father: {fileID: 8160499031380551250}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: -50.137}
 --- !u!198 &8160499031553313713
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -268,7 +253,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.11485406, g: 0.8396226, b: 0.11736205, a: 1}
+      maxColor: {r: 0.11372549, g: 0.8392157, b: 0.4617382, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}

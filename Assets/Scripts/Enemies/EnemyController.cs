@@ -12,6 +12,7 @@ public class EnemyController : MonoBehaviour
 
     public Animator anim;
     public float wakeUpTimer = 1f;
+    
 
     public enum AIState
     {        
@@ -44,6 +45,8 @@ public class EnemyController : MonoBehaviour
     private float NormalAgentSpeed;
 
     public bool isDeath = false;
+
+    public GameObject hurtBox;
 
     //public GameObject EnemyAnimatedBody;
     // Start is called before the first frame update
@@ -181,15 +184,18 @@ public class EnemyController : MonoBehaviour
             case AIState.isDeath:
                 if (isDeath == false)
                 {
-                                   
+                    hurtBox.gameObject.SetActive(false);
+                    agent.velocity = Vector3.zero;
+                    agent.isStopped = true;
+                    agent.speed = 0;
+                    agent.acceleration = 0;
+                    anim.SetBool("isDeath", true);
+                    anim.SetTrigger("Death");
+                    isDeath = true;
                     for (int i=0;i< GetComponents<Collider>().Length; i++)
                     {
                         GetComponents<Collider>()[i].enabled = false;
-                    }                    
-                    agent.velocity = Vector3.zero;
-                    agent.isStopped = true;
-                    anim.SetTrigger("Death");
-                    isDeath = true;                    
+                    }                                  
 
                 }
                 /*if (eType == EnemyType.CyborgSkeleton)

@@ -136,6 +136,7 @@ MonoBehaviour:
   currentPatrolPoint: 0
   agent: {fileID: 3312906642385585221}
   anim: {fileID: 435010808950915358}
+  wakeUpTimer: 1
   currentState: 0
   eType: 1
   waitAtPoint: 2
@@ -143,7 +144,7 @@ MonoBehaviour:
   attackRange: 5
   timeBetweenAttacks: 1.5
   isDeath: 0
-  EnemyAnimatedBody: {fileID: 6834249954924158583}
+  hurtBox: {fileID: 3312906642170317194}
 --- !u!114 &3312906642385585220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -908,12 +909,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c92258fc5395094daf073053e8ff3e3, type: 3}
---- !u!1 &6834249954924158583 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 0c92258fc5395094daf073053e8ff3e3,
-    type: 3}
-  m_PrefabInstance: {fileID: 3312906640809035646}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7530999096705625188 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 0c92258fc5395094daf073053e8ff3e3,
