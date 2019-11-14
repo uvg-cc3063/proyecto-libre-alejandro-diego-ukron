@@ -12,7 +12,7 @@ public class Mortar : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        transform.localRotation = Quaternion.Euler(0, -90, 0);
+        //transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, transform.rotation.z);
     }
 
     // Update is called once per frame
@@ -26,15 +26,14 @@ public class Mortar : MonoBehaviour
         if (Grounded)
         {
             elapsedTime += Time.deltaTime;
-            if(elapsedTime > TimeToExplotion)
+            if (elapsedTime > TimeToExplotion)
             {
                 Instantiate(ExplotionEffect, transform.position, transform.rotation);
                 elapsedTime = 0;
                 GetComponents<Collider>()[0].enabled = true;
                 GetComponents<Collider>()[1].enabled = true;
-                GetComponents<Collider>()[2].enabled = true;                
-                Destroy(gameObject);
-
+                GetComponents<Collider>()[2].enabled = true;
+                StartCoroutine(ExplosionTriggerActiveTime());
             }
         }
     }
@@ -44,13 +43,14 @@ public class Mortar : MonoBehaviour
         GetComponents<Collider>()[0].enabled = true;
         GetComponents<Collider>()[1].enabled = true;
         GetComponents<Collider>()[2].enabled = true;
-        Instantiate(ExplotionEffect, transform.position, transform.rotation);        
-        Destroy(gameObject);
+        Instantiate(ExplotionEffect, transform.position, transform.rotation);
+        //Destroy(gameObject);
+        StartCoroutine(ExplosionTriggerActiveTimeHit());
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "ground")
+        if (other.tag == "ground")
         {
             Grounded = true;
         }
@@ -61,7 +61,18 @@ public class Mortar : MonoBehaviour
             GetComponents<Collider>()[0].enabled = true;
             GetComponents<Collider>()[1].enabled = true;
             GetComponents<Collider>()[2].enabled = true;
-            Destroy(gameObject);            
+            StartCoroutine(ExplosionTriggerActiveTimeHit());
         }
+    }
+
+    public IEnumerator ExplosionTriggerActiveTime()
+    {
+        yield return new WaitForSeconds(1f);
+        Destroy(gameObject);
+    }
+    public IEnumerator ExplosionTriggerActiveTimeHit()
+    {
+        yield return new WaitForSeconds(0.1f);
+        Destroy(gameObject);
     }
 }

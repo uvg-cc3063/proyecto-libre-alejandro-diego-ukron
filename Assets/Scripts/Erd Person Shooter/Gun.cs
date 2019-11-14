@@ -89,10 +89,10 @@ public class Gun : MonoBehaviour
             RaycastHit hitInfo;
 
             //Disparo
-            float zpos = Random.Range(-1f, 1f);
-            float zpos2 = Random.Range(-1f, 1f);
-            float zpos3 = Random.Range(-1f, 1f);
-            float zpos4 = Random.Range(-1f, 1f);
+            float zpos = Random.Range(-0.5f, 0.5f);
+            float zpos2 = Random.Range(-0.5f, 0.5f);
+            float zpos3 = Random.Range(-0.5f, 0.5f);
+            float zpos4 = Random.Range(-0.5f, 0.5f);
             float ypos = Random.Range(-0.5f, 0.5f);
             float ypos2 = Random.Range(-0.5f, 0.5f);
             float ypos3 = Random.Range(-0.5f, 0.5f);
@@ -142,13 +142,15 @@ public class Gun : MonoBehaviour
             //Disparo
             Rigidbody shotPrefab;
             shotPrefab = Instantiate(Proyectile, firePoint.position, Quaternion.identity);
-
+            
             if (Physics.Raycast(ray, out hitInfo, 100))
             {
+                shotPrefab.transform.LookAt(hitInfo.point,Vector3.forward);
                 shotPrefab.AddForce((hitInfo.point - firePoint.position).normalized * 100 * shotSpeed);
             }
             else
             {
+                shotPrefab.transform.LookAt(ray.direction, Vector3.forward);
                 shotPrefab.AddForce(ray.direction * 100 * shotSpeed);
             }
         }
@@ -170,6 +172,7 @@ public class Gun : MonoBehaviour
             
             if (Physics.Raycast(ray, out hitInfo, 100))
             {
+                shotPrefab.transform.LookAt(hitInfo.point, Vector3.forward);
                 shotPrefab.AddForce((hitInfo.point - firePoint.position).normalized *100* shotSpeed);
 
                 //Destroy(hitInfo.collider.gameObject);
@@ -178,6 +181,7 @@ public class Gun : MonoBehaviour
             }
             else
             {
+                shotPrefab.transform.LookAt(ray.direction, Vector3.forward);
                 shotPrefab.AddForce(ray.direction * 100 * shotSpeed);
             }
         }                 

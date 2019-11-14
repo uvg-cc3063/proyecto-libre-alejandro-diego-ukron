@@ -11,6 +11,7 @@ public class EnemyController : MonoBehaviour
     public NavMeshAgent agent;
 
     public Animator anim;
+    public float wakeUpTimer = 1f;
 
     public enum AIState
     {        
@@ -19,10 +20,18 @@ public class EnemyController : MonoBehaviour
         isChasing,
         isAttacking,
         isDeath,
-        isSleep,
+        isSleeping,
         isBeingHited
     };
+
+    public enum EnemyType
+    {
+        CyborgSkeleton,
+        RoboticBat
+    }
+
     public AIState currentState;
+    public EnemyType eType;
 
     public float waitAtPoint = 2f;
     private float waitCounter;
@@ -36,13 +45,16 @@ public class EnemyController : MonoBehaviour
 
     public bool isDeath = false;
 
-    public GameObject EnemyAnimatedBody;
+    //public GameObject EnemyAnimatedBody;
     // Start is called before the first frame update
     void Start()
     {
         waitCounter = waitAtPoint;
         NormalAgentSpeed = agent.speed;
-        
+        /*if(eType == EnemyType.CyborgSkeleton)
+        {
+            transform.position = new Vector3(EnemyAnimatedBody.transform.position.x, -1, EnemyAnimatedBody.transform.position.z);
+        }     */   
     }
 
     // Update is called once per frame
@@ -52,7 +64,17 @@ public class EnemyController : MonoBehaviour
 
         switch (currentState)
         {
-            case AIState.isIdle:
+            case AIState.isSleeping:
+                anim.SetBool("isSleeping", true);
+                agent.velocity = Vector3.zero;
+                //agent.isStopped = true;
+                if(distanceToPlayer <= chaseRange)
+                {
+                    anim.SetBool("isSleeping", false);
+                    StartCoroutine(WakeUpChaseTimer());
+                }
+                break;
+            case AIState.isIdle:                
                 anim.SetBool("IsMoving", false);
                 if (waitCounter > 0)
                 {
@@ -158,23 +180,31 @@ public class EnemyController : MonoBehaviour
                 break;
             case AIState.isDeath:
                 if (isDeath == false)
-                {                    
-                    for(int i=0;i< GetComponents<Collider>().Length; i++)
+                {
+                                   
+                    for (int i=0;i< GetComponents<Collider>().Length; i++)
                     {
                         GetComponents<Collider>()[i].enabled = false;
                     }                    
                     agent.velocity = Vector3.zero;
                     agent.isStopped = true;
                     anim.SetTrigger("Death");
-                    isDeath = true;
-                    if(EnemyAnimatedBody.transform.position.y > 0)
-                    {
-                        EnemyAnimatedBody.transform.position = new Vector3(EnemyAnimatedBody.transform.position.x, 0, EnemyAnimatedBody.transform.position.z);
-                    }
+                    isDeath = true;                    
+
                 }
-                
+                /*if (eType == EnemyType.CyborgSkeleton)
+                {
+                    transform.position.Set(EnemyAnimatedBody.transform.position.x, -1f, EnemyAnimatedBody.transform.position.z);
+                }*/
                 break;
         }
+    }
+
+    public IEnumerator WakeUpChaseTimer()
+    {
+        yield return new WaitForSeconds(wakeUpTimer);
+        currentState = AIState.isChasing;
+        anim.SetBool("IsMoving", true);
     }
 
 }

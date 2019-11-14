@@ -98,7 +98,6 @@ MonoBehaviour:
   Proyectile: {fileID: -5858039213977071982, guid: 7139c271f0b3b344e9ef71eb305cb53e,
     type: 3}
   shotSpeed: 15
-  targetImage: {fileID: 0}
   type: 2
 --- !u!1001 &1845476144
 PrefabInstance:
