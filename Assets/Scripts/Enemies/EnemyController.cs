@@ -12,6 +12,8 @@ public class EnemyController : MonoBehaviour
 
     public Animator anim;
     public float wakeUpTimer = 1f;
+
+    private Rigidbody rb;
     
 
     public enum AIState
@@ -45,6 +47,7 @@ public class EnemyController : MonoBehaviour
     private float NormalAgentSpeed;
 
     public bool isDeath = false;
+    public bool Hitted = false;
 
     public GameObject hurtBox;
 
@@ -54,6 +57,7 @@ public class EnemyController : MonoBehaviour
     {
         waitCounter = waitAtPoint;
         NormalAgentSpeed = agent.speed;
+        rb = GetComponent<Rigidbody>();
         /*if(eType == EnemyType.CyborgSkeleton)
         {
             transform.position = new Vector3(EnemyAnimatedBody.transform.position.x, -1, EnemyAnimatedBody.transform.position.z);
@@ -77,8 +81,10 @@ public class EnemyController : MonoBehaviour
                     StartCoroutine(WakeUpChaseTimer());
                 }
                 break;
-            case AIState.isIdle:                
+            case AIState.isIdle:
+                Hitted = false;
                 anim.SetBool("IsMoving", false);
+                rb.velocity = Vector3.zero;
                 if (waitCounter > 0)
                 {
                     waitCounter -= Time.deltaTime;
@@ -180,10 +186,21 @@ public class EnemyController : MonoBehaviour
                 //agent.isStopped = true;
                 anim.SetTrigger("Hit");     
                 currentState = AIState.isIdle;
+                //Vector3 knockDirection = new Vector3();
+
+                if (!Hitted)
+                {
+                    rb.AddForce(PlayerController_s.instance.transform.forward * 200, ForceMode.Impulse);
+                    Hitted = true;
+                    
+                }
+                
+                //agent.gameObject.transform.s
                 break;
             case AIState.isDeath:
                 if (isDeath == false)
                 {
+                    StartCoroutine(StopRbForce());
                     hurtBox.gameObject.SetActive(false);
                     agent.velocity = Vector3.zero;
                     agent.isStopped = true;
@@ -195,8 +212,8 @@ public class EnemyController : MonoBehaviour
                     for (int i=0;i< GetComponents<Collider>().Length; i++)
                     {
                         GetComponents<Collider>()[i].enabled = false;
-                    }                                  
-
+                    }
+                    
                 }
                 /*if (eType == EnemyType.CyborgSkeleton)
                 {
@@ -211,6 +228,12 @@ public class EnemyController : MonoBehaviour
         yield return new WaitForSeconds(wakeUpTimer);
         currentState = AIState.isChasing;
         anim.SetBool("IsMoving", true);
+    }
+
+    public IEnumerator StopRbForce()
+    {
+        yield return new WaitForSeconds(1);
+        rb.isKinematic = true;
     }
 
 }

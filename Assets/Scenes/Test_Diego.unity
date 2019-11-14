@@ -132,6 +132,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoboticBat (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3312906642385585224, guid: c06267cb9de397c4ea17037e2c1fa38e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3312906642385585223, guid: c06267cb9de397c4ea17037e2c1fa38e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1755,6 +1760,28 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1586722855}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1613284505 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3312906642385585224, guid: c06267cb9de397c4ea17037e2c1fa38e,
+    type: 3}
+  m_PrefabInstance: {fileID: 3312906640974982927}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &1613284506
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613284505}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1631388649
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1766,6 +1793,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CyborgSkeleton (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6094851721505178290, guid: 1327ac7ca81213b489a93909f5205fc3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6094851721505178291, guid: 1327ac7ca81213b489a93909f5205fc3,
         type: 3}
@@ -3357,6 +3389,28 @@ PrefabInstance:
       objectReference: {fileID: 59920007}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1327ac7ca81213b489a93909f5205fc3, type: 3}
+--- !u!1 &6094851721766843445 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6094851721505178290, guid: 1327ac7ca81213b489a93909f5205fc3,
+    type: 3}
+  m_PrefabInstance: {fileID: 6094851721766843444}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &6094851721766843446
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6094851721766843445}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &6453989267009726721
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4546,6 +4600,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 1.8468909
       objectReference: {fileID: 0}
+    - target: {fileID: 8577625989010450247, guid: 5f2db08d4dba8b14ca08559d3ca80a67,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8577625989010450247, guid: 5f2db08d4dba8b14ca08559d3ca80a67,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8577625989010450247, guid: 5f2db08d4dba8b14ca08559d3ca80a67,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8577625989010450247, guid: 5f2db08d4dba8b14ca08559d3ca80a67,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.133
+      objectReference: {fileID: 0}
+    - target: {fileID: 8577625989010450247, guid: 5f2db08d4dba8b14ca08559d3ca80a67,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8577625989010450247, guid: 5f2db08d4dba8b14ca08559d3ca80a67,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.016
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f2db08d4dba8b14ca08559d3ca80a67, type: 3}
 --- !u!4 &6848601529636091850 stripped
@@ -4773,12 +4857,12 @@ PrefabInstance:
     - target: {fileID: 5847339217724587310, guid: fbb137f64e53cc640bd0418fb50acafe,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0000000044941126
+      value: 0.0000000040740398
       objectReference: {fileID: 0}
     - target: {fileID: 5847339217724587310, guid: fbb137f64e53cc640bd0418fb50acafe,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000027079246
+      value: 0.0000000019322564
       objectReference: {fileID: 0}
     - target: {fileID: 5847339217724587310, guid: fbb137f64e53cc640bd0418fb50acafe,
         type: 3}
@@ -4813,12 +4897,12 @@ PrefabInstance:
     - target: {fileID: 5847339218190326471, guid: fbb137f64e53cc640bd0418fb50acafe,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0000000044941126
+      value: 0.0000000040740398
       objectReference: {fileID: 0}
     - target: {fileID: 5847339218190326471, guid: fbb137f64e53cc640bd0418fb50acafe,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000027079246
+      value: 0.0000000019322564
       objectReference: {fileID: 0}
     - target: {fileID: 5847339218190326471, guid: fbb137f64e53cc640bd0418fb50acafe,
         type: 3}
