@@ -200,6 +200,7 @@ public class EnemyController : MonoBehaviour
             case AIState.isDeath:
                 if (isDeath == false)
                 {
+                    rb.AddForce(PlayerController_s.instance.transform.forward * 5, ForceMode.Impulse);
                     StartCoroutine(StopRbForce());
                     hurtBox.gameObject.SetActive(false);
                     agent.velocity = Vector3.zero;
@@ -232,7 +233,7 @@ public class EnemyController : MonoBehaviour
 
     public IEnumerator StopRbForce()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1);        
         rb.isKinematic = true;
     }
 
