@@ -4310,6 +4310,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Terrain
       objectReference: {fileID: 0}
+    - target: {fileID: 2190499099365081758, guid: 424cff6c6dc60f74b83ecb9911b164d8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967294
+      objectReference: {fileID: 0}
     - target: {fileID: 2190499099365082467, guid: 424cff6c6dc60f74b83ecb9911b164d8,
         type: 3}
       propertyPath: m_LocalPosition.x

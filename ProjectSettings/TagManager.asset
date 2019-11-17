@@ -12,6 +12,7 @@ TagManager:
   - nshot
   - gshot
   - mortar
+  - Destroyable
   layers:
   - Default
   - TransparentFX
