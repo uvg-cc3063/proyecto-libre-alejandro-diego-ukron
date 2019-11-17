@@ -37,5 +37,9 @@ public class Proyectile : MonoBehaviour {
             DestroyOnHit();
             other.GetComponent<EnemyHealthManager>().TakeDamage();
         }
+        if (other.tag == "bossShield")
+        {
+            DestroyOnHit();
+        }
     }
 }

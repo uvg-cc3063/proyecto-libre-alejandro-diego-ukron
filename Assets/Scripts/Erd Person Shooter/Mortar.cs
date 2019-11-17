@@ -63,6 +63,10 @@ public class Mortar : MonoBehaviour
             GetComponents<Collider>()[2].enabled = true;
             StartCoroutine(ExplosionTriggerActiveTimeHit());
         }
+        if (other.tag == "bossShield")
+        {
+            DestroyOnHit();
+        }
     }
 
     public IEnumerator ExplosionTriggerActiveTime()

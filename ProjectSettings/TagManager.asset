@@ -12,6 +12,9 @@ TagManager:
   - nshot
   - gshot
   - mortar
+  - sword
+  - bossShield
+  - bossBomb
   layers:
   - Default
   - TransparentFX
