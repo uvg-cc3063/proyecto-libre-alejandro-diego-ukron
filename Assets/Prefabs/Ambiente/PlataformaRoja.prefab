@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1348853710}
   - component: {fileID: 2077892030}
   m_Layer: 0
-  m_Name: Plataforma_
+  m_Name: PlataformaRoja
   m_TagString: environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -145,6 +145,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7210915413076119682, guid: 91662d312c6d3834baa5aacc67de199a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 079e444389a33534f93e575408e54d70, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91662d312c6d3834baa5aacc67de199a, type: 3}
 --- !u!4 &6071638600212338283 stripped
