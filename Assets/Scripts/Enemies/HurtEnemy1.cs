@@ -17,7 +17,7 @@ public class HurtEnemy1 : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag=="Enemy")
+        if (other.tag=="Destroyable")
         {
             other.GetComponent<EnemyHealthManager1>().TakeDamage();
         }
