@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2020144459}
   m_Layer: 0
   m_Name: Crate2
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,13 +26,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2020144458}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalScale: {x: 100, y: 100.00006, z: 100.00006}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 0}
 --- !u!33 &2020144461
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -90,5 +90,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.0100000035, y: 0.010002628, z: 0.009999998}
-  m_Center: {x: 0, y: -0.0000013131646, z: 0}
+  m_Size: {x: 0.010811944, y: 0.010347583, z: 0.009999998}
+  m_Center: {x: -0.0004059723, y: -0.00017379272, z: 1.6385323e-18}

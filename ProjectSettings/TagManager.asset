@@ -15,6 +15,7 @@ TagManager:
   - sword
   - bossShield
   - bossBomb
+  - Destroyable
   layers:
   - Default
   - TransparentFX
