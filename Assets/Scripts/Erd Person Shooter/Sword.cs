@@ -26,5 +26,14 @@ public class Sword : MonoBehaviour
             
             other.GetComponent<EnemyHealthManager>().KillEnemy();
         }
+        if (other.tag == "Tadd")
+        {
+            Quaternion newRot = Quaternion.Euler(90, 180, 180);
+            Instantiate(HitEffect, transform.position, newRot);
+            
+            BossController.instance.DamageBoss();
+            //other.GetComponent<BossController>().DamageBoss();
+            
+        }
     }
 }

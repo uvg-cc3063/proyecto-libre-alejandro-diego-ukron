@@ -16,6 +16,7 @@ TagManager:
   - bossShield
   - bossBomb
   - Destroyable
+  - Tadd
   layers:
   - Default
   - TransparentFX

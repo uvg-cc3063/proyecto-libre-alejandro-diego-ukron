@@ -50,7 +50,7 @@ public class BossDamagePoint : MonoBehaviour
             }
             if (other.tag == "sword")
             {
-                BossController.instance.DamageBoss2();
+                BossController.instance.DamageBoss();
 
             }
             Triggered = true;

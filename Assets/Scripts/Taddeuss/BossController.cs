@@ -78,7 +78,7 @@ public class BossController : MonoBehaviour
         float distanceToPlayer = Vector3.Distance(transform.position, PlayerController_s.instance.transform.position);
         if (GameManager.instance.isRespawning)
         {
-
+            elapsedTime = 0;
             DeActivateSpotLights();
             currentPhase = BossPhase.intro;
 
@@ -149,7 +149,7 @@ public class BossController : MonoBehaviour
                 anim.SetBool("bombAttack",true);
                 transform.LookAt(PlayerController_s.instance.transform, Vector3.up);
                 transform.rotation = Quaternion.Euler(0f, transform.rotation.eulerAngles.y, 0f);
-                Timer = 15;
+                Timer = 10;
                 elapsedTime += Time.deltaTime;
                                
                 if (elapsedTime >= Timer)

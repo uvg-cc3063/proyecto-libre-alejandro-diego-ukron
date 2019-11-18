@@ -21,5 +21,6 @@ public class HurtEnemy1 : MonoBehaviour
         {
             other.GetComponent<EnemyHealthManager1>().TakeDamage();
         }
+        
     }
 }
