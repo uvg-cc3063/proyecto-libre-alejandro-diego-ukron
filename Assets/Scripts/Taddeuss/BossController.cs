@@ -375,7 +375,7 @@ public class BossController : MonoBehaviour
             shotPrefab.transform.LookAt(hitInfo.point, Vector3.forward);
             //shotPrefab.AddForce(((hitInfo.point - Playertarget.position)+hitInfo.point).normalized * 100 * shotSpeed);
             //shotPrefab.AddForce(((Playertarget.position - firePoint.position) + Playertarget.position).normalized * 100 * shotSpeed);
-            shotPrefab.AddForce(((hitInfo.point - firePoint.position)).normalized * 100 * shotSpeed);
+            shotPrefab.AddForce(((firePoint.position - Playertarget.position)).normalized * 100 * -shotSpeed);
 
             //Destroy(hitInfo.collider.gameObject);
             /*if (health != null)

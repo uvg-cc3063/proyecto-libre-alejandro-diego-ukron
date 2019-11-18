@@ -108,7 +108,7 @@ MonoBehaviour:
   ExplotionEffect: {fileID: 5015649320159202460, guid: 6eccd13348bdd044c8229b09e4362d15,
     type: 3}
   elapsedTime: 0
-  TimeToExplotion: 1
+  TimeToExplotion: 0.5
   Grounded: 0
 --- !u!1001 &5215882055597924438
 PrefabInstance:
