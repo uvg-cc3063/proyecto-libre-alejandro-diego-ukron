@@ -32,6 +32,7 @@ public class GunDetection : MonoBehaviour
                 WeaponToTake.gameObject.transform.localRotation = Quaternion.Euler(2.17f, -16.876f, 172.442f);
                 WeaponToTake.gameObject.transform.localScale = new Vector3(0.02626913f, 0.02408004f, 0.02408004f);  
                 WeaponToTake.GetComponent<Collider>().enabled = false;
+                WeaponToTake.LightPointOff();
                 currentWeapon = WeaponToTake;
 
                 for (int i = 0; i < weapons.Count; i++)
@@ -132,6 +133,7 @@ public class GunDetection : MonoBehaviour
     private void DeactivateColliderOfDefoultfW()
     {
         weapons[0].gameObject.GetComponent<Collider>().enabled=false;
+
     }
 
     public void ChangeUIWeapon(Gun currentWeaponn)

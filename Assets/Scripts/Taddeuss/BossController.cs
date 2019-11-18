@@ -6,13 +6,16 @@ using UnityEngine.AI;
 public class BossController : MonoBehaviour
 {
     public static BossController instance;
-    public GameObject victoryZone,shoulder,sword,canion,coat;
+    public GameObject victoryZone,shoulder,sword,canion,coat,sunLight;
+    
     public float waitToShowExit;
     public Animator anim;
 
     public Transform firePoint;
     public Rigidbody bomb;
     public float shotSpeed = 10f;
+
+    public ParticleSystem muzzleFlash;
 
     public enum BossPhase {
         intro,
@@ -26,9 +29,9 @@ public class BossController : MonoBehaviour
     }
 
     public bool phase1, phase2;
+    public int bossMusic, bossDeathShout, bossHit, Unexpected, YouGonnaDie,ChangeSword,laguhingWait,laserSword,bossDeathPhrase;
     public BossPhase currentPhase = BossPhase.intro;
-
-    public int bossMusic, bossDeath, bossDeathShout, bossHit, bossUnexpected,bossYouGD;
+    
 
     public int BossHealth = 6;
     public int BossMaxHealth = 6;
@@ -36,6 +39,7 @@ public class BossController : MonoBehaviour
     public float Timer;
     public float elapsedTime;
 
+    public GameObject[] spotlights;
     public Transform[] patrolPoints;
     public int currentPatrolPoint;
     public NavMeshAgent agent;
@@ -47,8 +51,11 @@ public class BossController : MonoBehaviour
     public bool isDeath = false;
     private bool Hitted = false;
     private bool waitOnce = false;
+    private bool dashSound = false;
 
     private bool addPoint = false;
+
+    public Transform Playertarget;
 
     private void Awake()
     {
@@ -62,7 +69,7 @@ public class BossController : MonoBehaviour
 
     private void OnEnable()
     {
-        AudioManager.instance.PlayMusic(bossMusic);
+        
     }
 
     // Update is called once per frame
@@ -71,12 +78,15 @@ public class BossController : MonoBehaviour
         float distanceToPlayer = Vector3.Distance(transform.position, PlayerController_s.instance.transform.position);
         if (GameManager.instance.isRespawning)
         {
+
+            DeActivateSpotLights();
             currentPhase = BossPhase.intro;
 
             start = false;
             anim.SetBool("StandUp", false);
             anim.SetTrigger("StartOver");
 
+            BossCamera.instance.IsdeathFalse();
             anim.SetBool("isDeath", false);
             anim.SetBool("Wait&Laughing", false);
             anim.SetBool("bombAttack", false);
@@ -101,7 +111,8 @@ public class BossController : MonoBehaviour
             BossHealth = BossMaxHealth;
 
             BossActivator.instance.gameObject.SetActive(true);
-            BossActivator.instance.entrance.SetActive(true);
+            BossActivator.instance.entrance.SetActive(false);
+            sunLight.gameObject.SetActive(false);
 
             GameManager.instance.isRespawning = false;
         }
@@ -111,20 +122,28 @@ public class BossController : MonoBehaviour
             case BossPhase.intro:
                 if (start == true)
                 {
+                    PlayerController_s.instance.stopMove = true;
+                    transform.LookAt(PlayerController_s.instance.transform, Vector3.up);
+                    ActivateCurrentSpotLight(0);
                     anim.SetBool("StandUp", true);
                     Timer = 15;
                     elapsedTime += Time.deltaTime;
                     if (elapsedTime >= Timer)
                     {
                         currentPhase = BossPhase.phase1;
+                        AudioManager.instance.PlayMusic(bossMusic);
+                        sunLight.gameObject.SetActive(true);
                         elapsedTime = 0;
                         shoulder.gameObject.SetActive(true);
                         canion.gameObject.SetActive(true);
                         anim.SetBool("StandUp", false);
+                        BossActivator.instance.ReturnToMainCamera();
                     }
                 }                
                 break;
             case BossPhase.phase1:
+                PlayerController_s.instance.stopMove = false;
+                
                 phase1 = true;
                 phase2 = false;
                 anim.SetBool("bombAttack",true);
@@ -177,6 +196,7 @@ public class BossController : MonoBehaviour
                 }               
                 break;
             case BossPhase.changeToSword:
+                BossActivator.instance.ChangeToAnimatedCamera();
                 phase1 = false;
                 anim.SetBool("changeToSword", true);
                 Timer = 9;
@@ -186,17 +206,24 @@ public class BossController : MonoBehaviour
                     sword.gameObject.SetActive(true);
                     coat.gameObject.SetActive(false);
                     canion.gameObject.SetActive(false);
+                    BossActivator.instance.ReturnToMainCamera();
                 }
                 if (elapsedTime >= Timer)
                 {
                     anim.SetBool("changeToSword", false);
                     currentPhase = BossPhase.phase2;
                     elapsedTime = 0;
+                    
                 }
                 break;
             case BossPhase.phase2:                
                 anim.SetBool("bombAttack", false);
-                anim.SetBool("dashAttack", true);                
+                anim.SetBool("dashAttack", true);   
+                if(dashSound == false)
+                {
+                    AudioManager.instance.PlaySfx(34);
+                    dashSound = true;
+                }
                 phase2 = true;
                 Debug.Log("phase2");
                 agent.SetDestination(PlayerController_s.instance.transform.position);
@@ -206,11 +233,13 @@ public class BossController : MonoBehaviour
                     agent.SetDestination(patrolPoints[currentPatrolPoint].position);
                     anim.SetBool("dashAttack", false);
                     anim.SetBool("Jump",true);
-                    rb.isKinematic = false;
-                    rb.AddForce(PlayerController_s.instance.transform.up * 50f, ForceMode.Impulse);
+                    AudioManager.instance.PlaySfx(33);
+                    rb.isKinematic = true; //false
+                    //rb.AddForce(PlayerController_s.instance.transform.up * 50f, ForceMode.Impulse);
                     elapsedTime = 0;
+                    dashSound = false;
                 }
-                Timer = 10;
+                Timer = 5;
                 elapsedTime += Time.deltaTime;
                 if(elapsedTime >= Timer)
                 {
@@ -218,20 +247,23 @@ public class BossController : MonoBehaviour
                     agent.SetDestination(patrolPoints[currentPatrolPoint].position);
                     anim.SetBool("dashAttack", false);
                     anim.SetBool("Jump", true);
-                    rb.isKinematic = false;
-                    rb.AddForce(PlayerController_s.instance.transform.up * 50f, ForceMode.Impulse);
+                    AudioManager.instance.PlaySfx(33);
+                    rb.isKinematic = true; //false
+                    //rb.AddForce(PlayerController_s.instance.transform.up * 50f, ForceMode.Impulse);
                     elapsedTime = 0;
+                    dashSound = false;
                 }
                 break;
             case BossPhase.goingPoint:                      
                 Debug.Log("goingPoint");
-                
+                rb.velocity = Vector3.zero;
                 if (agent.remainingDistance <= 1f)
                 {
                     currentPhase = BossPhase.waitForHit;
                     if (addPoint == false)
                     {
                         currentPatrolPoint++;
+                        ActivateCurrentSpotLight(currentPatrolPoint-1);
                         addPoint = true;
                     }                    
                     if (currentPatrolPoint >= patrolPoints.Length)
@@ -326,8 +358,9 @@ public class BossController : MonoBehaviour
 
     public void ShotBoss()
     {
+        muzzleFlash.Play();
         //Ray ray = Camera.main.ViewportPointToRay(Vector3.one * 0.5f);        
-        Vector3 direction = PlayerController_s.instance.transform.position;
+        Vector3 direction = Playertarget.position.normalized;
         Ray ray = new Ray(firePoint.position, direction);
         Debug.DrawRay(firePoint.position, direction * 100, Color.red, 2f);
         RaycastHit hitInfo;
@@ -339,11 +372,16 @@ public class BossController : MonoBehaviour
         if (Physics.Raycast(ray, out hitInfo, 100))
         {
             shotPrefab.transform.LookAt(hitInfo.point, Vector3.forward);
-            shotPrefab.AddForce((hitInfo.point - firePoint.position).normalized * 100 * shotSpeed);
+            shotPrefab.AddForce(((hitInfo.point - Playertarget.position)+hitInfo.point).normalized * 100 * shotSpeed);
 
             //Destroy(hitInfo.collider.gameObject);
             /*if (health != null)
                 health.TakeDamage(damage);*/
+        }
+        else
+        {
+            shotPrefab.transform.LookAt(ray.direction, Vector3.forward);
+            shotPrefab.AddForce(ray.direction * 100 * shotSpeed);
         }
     }
 
@@ -402,11 +440,32 @@ public class BossController : MonoBehaviour
 
     IEnumerator EndBossCo()
     {
-        AudioManager.instance.PlaySfx(bossDeath);
+        //AudioManager.instance.PlaySfx(bossDeath);
         AudioManager.instance.PlaySfx(bossDeathShout);
         AudioManager.instance.PlayMusic(AudioManager.instance.levelMusicToPlay);
 
         yield return new WaitForSeconds(waitToShowExit);
         victoryZone.SetActive(true);
+    }
+
+    public void ActivateCurrentSpotLight(int currentSpot)
+    {
+        for(int i = 0; i < spotlights.Length; i++)
+        {
+            spotlights[i].gameObject.SetActive(false);
+        }
+        spotlights[currentSpot].gameObject.SetActive(true);
+    }
+    public void DeActivateSpotLights()
+    {
+        for (int i = 0; i < spotlights.Length; i++)
+        {
+            spotlights[i].gameObject.SetActive(false);
+        }
+    }
+
+    public void DestroyBoss()
+    {
+        Destroy(gameObject);
     }
 }

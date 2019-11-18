@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46eeda7a30e137248acb095894cff1e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reloadAmount: 8
+  reloadAmount: 3
   type: 1
 --- !u!65 &8512442802820722811
 BoxCollider:

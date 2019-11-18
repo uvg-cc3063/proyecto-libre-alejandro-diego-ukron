@@ -11,6 +11,7 @@ public class Gun : MonoBehaviour
 
     public int maxAmmo = 10;
     public int currentAmmo;
+    public GameObject pointLight;
     //public float reloadTime = 1f;
 
     [SerializeField]
@@ -46,25 +47,28 @@ public class Gun : MonoBehaviour
     {
         if (GetComponentInParent<PlayerController_s>() != null)
         {
-            timer += Time.deltaTime;
-            if (timer >= fireRate)
+            if(PlayerController_s.instance.stopMove == false && PlayerController_s.instance.isKnocking == false)
             {
-                                   
-                if (Input.GetKeyDown(KeyCode.Mouse0))
+                timer += Time.deltaTime;
+                if (timer >= fireRate)
                 {
-                    if (currentAmmo > 0)
+
+                    if (Input.GetKeyDown(KeyCode.Mouse0))
                     {
-                        timer = 0f;
-                        FireGun();
+                        if (currentAmmo > 0)
+                        {
+                            timer = 0f;
+                            FireGun();
+                        }
+                        else
+                        {
+                            AudioManager.instance.PlaySfx(24);
+                        }
                     }
-                    else
-                    {
-                        AudioManager.instance.PlaySfx(24);
-                    }
-                }                               
-               
-            }
-            UIManager.instance.UpdateAmmoBar(currentAmmo, maxAmmo);
+
+                }
+                UIManager.instance.UpdateAmmoBar(currentAmmo, maxAmmo);
+            }            
         }        
     }
 
@@ -218,5 +222,10 @@ public class Gun : MonoBehaviour
             currentAmmo = maxAmmo;
         }
         
+    }
+
+    public void LightPointOff()
+    {
+        pointLight.gameObject.SetActive(false);
     }
 }

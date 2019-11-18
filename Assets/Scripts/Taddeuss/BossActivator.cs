@@ -30,9 +30,32 @@ public class BossActivator : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            //entrance.SetActive(false);
             entrance.SetActive(false);
             BossController.instance.start = true;
+            
+            MainCam.gameObject.SetActive(false);
+            AnimatedCam.gameObject.SetActive(true);
+            UI.gameObject.SetActive(false);
+            AIM.gameObject.SetActive(false);
             gameObject.SetActive(false);
         }
     }
+
+    public void ReturnToMainCamera()
+    {
+        UI.gameObject.SetActive(true);
+        AIM.gameObject.SetActive(true);
+        MainCam.gameObject.SetActive(true);
+        AnimatedCam.gameObject.SetActive(false);
+    }
+
+    public void ChangeToAnimatedCamera()
+    {
+        UI.gameObject.SetActive(false);
+        AIM.gameObject.SetActive(false);
+        MainCam.gameObject.SetActive(false);
+        AnimatedCam.gameObject.SetActive(true);
+    }
+
 }

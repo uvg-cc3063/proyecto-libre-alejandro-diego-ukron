@@ -54,6 +54,10 @@ public class Mortar : MonoBehaviour
         {
             Grounded = true;
         }
+        if (other.tag == "environment")
+        {
+            Grounded = true;
+        }
         if (other.tag == "Enemy")
         {
             other.GetComponent<EnemyHealthManager>().KillEnemy();

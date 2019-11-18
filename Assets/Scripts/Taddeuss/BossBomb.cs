@@ -57,7 +57,7 @@ public class BossBomb : MonoBehaviour
         }
         if (other.tag == "Player")
         {
-            other.GetComponent<EnemyHealthManager>().KillEnemy();
+            HealthManager.instance.Hurt();
             Instantiate(ExplotionEffect, transform.position, transform.rotation);
             GetComponents<Collider>()[0].enabled = true;
             GetComponents<Collider>()[1].enabled = true;

@@ -2594,36 +2594,6 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 6848601529636091850}
-    - target: {fileID: 76687004645515275, guid: bcc24e3d4ff04fb479cec0eb01a72562,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 3.9783819
-      objectReference: {fileID: 0}
-    - target: {fileID: 76687004645515275, guid: bcc24e3d4ff04fb479cec0eb01a72562,
-        type: 3}
-      propertyPath: m_Size.z
-      value: 0.8072646
-      objectReference: {fileID: 0}
-    - target: {fileID: 76687004645515275, guid: bcc24e3d4ff04fb479cec0eb01a72562,
-        type: 3}
-      propertyPath: m_Center.x
-      value: 0.038016636
-      objectReference: {fileID: 0}
-    - target: {fileID: 76687004645515275, guid: bcc24e3d4ff04fb479cec0eb01a72562,
-        type: 3}
-      propertyPath: m_Center.y
-      value: 2.358355
-      objectReference: {fileID: 0}
-    - target: {fileID: 76687004645515275, guid: bcc24e3d4ff04fb479cec0eb01a72562,
-        type: 3}
-      propertyPath: m_Center.z
-      value: -0.008965333
-      objectReference: {fileID: 0}
-    - target: {fileID: 76687004645515275, guid: bcc24e3d4ff04fb479cec0eb01a72562,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 0.71487105
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bcc24e3d4ff04fb479cec0eb01a72562, type: 3}
 --- !u!1001 &309338338441435849
@@ -3906,6 +3876,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -33.022995
       objectReference: {fileID: 0}
+    - target: {fileID: 5847339217724587310, guid: fbb137f64e53cc640bd0418fb50acafe,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.2551537
+      objectReference: {fileID: 0}
     - target: {fileID: 5847339217724587309, guid: fbb137f64e53cc640bd0418fb50acafe,
         type: 3}
       propertyPath: m_LookAt
@@ -3945,6 +3920,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -33.022995
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847339218190326471, guid: fbb137f64e53cc640bd0418fb50acafe,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.2551537
       objectReference: {fileID: 0}
     - target: {fileID: 5847339217724587311, guid: fbb137f64e53cc640bd0418fb50acafe,
         type: 3}

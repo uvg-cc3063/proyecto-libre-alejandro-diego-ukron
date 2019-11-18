@@ -178,14 +178,23 @@ public class PlayerController_s : MonoBehaviour
 
     public void Shot()
     {
-        //anim.SetBool("isShooting", true);
-        anim.SetTrigger("Shot");
+        if (isKnocking ==false && stopMove ==false)
+        {
+            anim.SetTrigger("Shot");
+        }
+            //anim.SetBool("isShooting", true);
+            
         //anim.SetBool("isShooting", true);
     }
     public void Sword()
     {
-        //anim.SetBool("isShooting", true);
-        anim.SetTrigger("Sword");
+        if (!isKnocking && !stopMove)
+        {
+            anim.SetTrigger("Sword");
+        }
+
+            //anim.SetBool("isShooting", true);
+            
         //anim.SetBool("isShooting", true);
     }
     /*
