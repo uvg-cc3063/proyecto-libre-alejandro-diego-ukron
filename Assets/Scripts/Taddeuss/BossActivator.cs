@@ -31,7 +31,7 @@ public class BossActivator : MonoBehaviour
         if (other.tag == "Player")
         {
             //entrance.SetActive(false);
-            entrance.SetActive(false);
+            entrance.gameObject.SetActive(true);
             BossController.instance.start = true;
             
             MainCam.gameObject.SetActive(false);
@@ -56,6 +56,11 @@ public class BossActivator : MonoBehaviour
         AIM.gameObject.SetActive(false);
         MainCam.gameObject.SetActive(false);
         AnimatedCam.gameObject.SetActive(true);
+    }
+
+    public void EntranceOFF()
+    {
+        entrance.gameObject.SetActive(false);
     }
 
 }

@@ -360,7 +360,8 @@ public class BossController : MonoBehaviour
     {
         muzzleFlash.Play();
         //Ray ray = Camera.main.ViewportPointToRay(Vector3.one * 0.5f);        
-        Vector3 direction = Playertarget.position.normalized;
+        //Vector3 direction = Playertarget.position;
+        Vector3 direction = (Playertarget.position - firePoint.position) +Playertarget.position;
         Ray ray = new Ray(firePoint.position, direction);
         Debug.DrawRay(firePoint.position, direction * 100, Color.red, 2f);
         RaycastHit hitInfo;
@@ -372,7 +373,9 @@ public class BossController : MonoBehaviour
         if (Physics.Raycast(ray, out hitInfo, 100))
         {
             shotPrefab.transform.LookAt(hitInfo.point, Vector3.forward);
-            shotPrefab.AddForce(((hitInfo.point - Playertarget.position)+hitInfo.point).normalized * 100 * shotSpeed);
+            //shotPrefab.AddForce(((hitInfo.point - Playertarget.position)+hitInfo.point).normalized * 100 * shotSpeed);
+            //shotPrefab.AddForce(((Playertarget.position - firePoint.position) + Playertarget.position).normalized * 100 * shotSpeed);
+            shotPrefab.AddForce(((hitInfo.point - firePoint.position)).normalized * 100 * shotSpeed);
 
             //Destroy(hitInfo.collider.gameObject);
             /*if (health != null)
