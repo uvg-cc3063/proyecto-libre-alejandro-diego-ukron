@@ -29,6 +29,7 @@ public class Mortar : MonoBehaviour
             if (elapsedTime > TimeToExplotion)
             {
                 Instantiate(ExplotionEffect, transform.position, transform.rotation);
+                AudioManager.instance.PlaySfx(39);
                 elapsedTime = 0;
                 GetComponents<Collider>()[0].enabled = true;
                 GetComponents<Collider>()[1].enabled = true;
@@ -44,6 +45,7 @@ public class Mortar : MonoBehaviour
         GetComponents<Collider>()[1].enabled = true;
         GetComponents<Collider>()[2].enabled = true;
         Instantiate(ExplotionEffect, transform.position, transform.rotation);
+        AudioManager.instance.PlaySfx(39);
         //Destroy(gameObject);
         StartCoroutine(ExplosionTriggerActiveTimeHit());
     }
@@ -62,6 +64,7 @@ public class Mortar : MonoBehaviour
         {
             other.GetComponent<EnemyHealthManager>().KillEnemy();
             Instantiate(ExplotionEffect, transform.position, transform.rotation);
+            AudioManager.instance.PlaySfx(39);
             GetComponents<Collider>()[0].enabled = true;
             GetComponents<Collider>()[1].enabled = true;
             GetComponents<Collider>()[2].enabled = true;

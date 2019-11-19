@@ -45,5 +45,11 @@ public class BossCamera : MonoBehaviour
     public void IsdeathFalse()
     {
         anim.SetBool("isDeath",false);
+        IntroOnce = false;
+        SwordOnce = false;
     }
+    /*public void IsdeathTrue()
+    {
+        anim.SetBool("isDeath", true);
+    }*/
 }

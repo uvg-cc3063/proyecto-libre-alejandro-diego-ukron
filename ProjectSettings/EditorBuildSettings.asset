@@ -29,9 +29,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LevelPackTest.unity
     guid: 1d5831f45175c05418ac65383acbff87
-  - enabled: 0
-    path: 
-    guid: 92c3d5308c3f88d49a71b799af2ab4ca
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 96bfdca5662f6044daed09217d660c4a
   - enabled: 1
     path: Assets/Scenes/Tutorial_Scene.unity
     guid: 37444a325ddaf56458b1c59c99122d92

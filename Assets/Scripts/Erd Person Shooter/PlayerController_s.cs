@@ -14,6 +14,7 @@ public class PlayerController_s : MonoBehaviour
     private Vector3 moveDirection;
 
     public CharacterController charController;
+    
 
     private Camera theCam;
 
@@ -42,6 +43,8 @@ public class PlayerController_s : MonoBehaviour
     [SerializeField]
     private float turnSpeed = 150f;
 
+    public GunDetection gund;
+
     private void Awake()
     {
         instance = this;
@@ -51,6 +54,7 @@ public class PlayerController_s : MonoBehaviour
     void Start()
     {
         theCam = Camera.main; //gets the main camera in the scene
+        gund = GetComponent<GunDetection>();
     }
 
     // Update is called once per frame
@@ -165,7 +169,7 @@ public class PlayerController_s : MonoBehaviour
     {
         isKnocking = true;
         knockbackCounter = knockBackLength;
-        Debug.Log("knocked back!!");
+        //Debug.Log("knocked back!!");
         moveDirection.y = knockbackPower.y;
         charController.Move(moveDirection * Time.deltaTime);
     }

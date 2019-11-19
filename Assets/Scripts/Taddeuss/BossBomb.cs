@@ -29,6 +29,7 @@ public class BossBomb : MonoBehaviour
             if (elapsedTime > TimeToExplotion)
             {
                 Instantiate(ExplotionEffect, transform.position, transform.rotation);
+                AudioManager.instance.PlaySfx(35);
                 elapsedTime = 0;
                 GetComponents<Collider>()[0].enabled = true;
                 GetComponents<Collider>()[1].enabled = true;
@@ -45,6 +46,7 @@ public class BossBomb : MonoBehaviour
         GetComponents<Collider>()[1].enabled = true;
         GetComponents<Collider>()[2].enabled = true;
         Instantiate(ExplotionEffect, transform.position, transform.rotation);
+        AudioManager.instance.PlaySfx(35);
         //Destroy(gameObject);
         StartCoroutine(ExplosionTriggerActiveTimeHit());
     }
@@ -59,6 +61,7 @@ public class BossBomb : MonoBehaviour
         {
             HealthManager.instance.Hurt();
             Instantiate(ExplotionEffect, transform.position, transform.rotation);
+            AudioManager.instance.PlaySfx(35);
             GetComponents<Collider>()[0].enabled = true;
             GetComponents<Collider>()[1].enabled = true;
             GetComponents<Collider>()[2].enabled = true;
@@ -68,7 +71,7 @@ public class BossBomb : MonoBehaviour
 
     public IEnumerator ExplosionTriggerActiveTime()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.25f);
         Destroy(gameObject);
     }
     public IEnumerator ExplosionTriggerActiveTimeHit()

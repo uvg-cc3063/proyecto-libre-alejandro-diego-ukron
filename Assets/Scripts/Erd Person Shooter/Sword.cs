@@ -25,6 +25,7 @@ public class Sword : MonoBehaviour
             Instantiate(HitEffect,transform.position, newRot);
             
             other.GetComponent<EnemyHealthManager>().KillEnemy();
+            AudioManager.instance.PlaySfx(38);
         }
         if (other.tag == "Tadd")
         {
@@ -33,7 +34,16 @@ public class Sword : MonoBehaviour
             
             BossController.instance.DamageBoss();
             //other.GetComponent<BossController>().DamageBoss();
-            
+            AudioManager.instance.PlaySfx(38);
+        }
+        if (other.tag == "bossShield")
+        {
+            Quaternion newRot = Quaternion.Euler(90, 180, 180);
+            Instantiate(HitEffect, transform.position, newRot);
+
+            //BossController.instance.DamageBoss();
+            //other.GetComponent<BossController>().DamageBoss();
+            AudioManager.instance.PlaySfx(40);
         }
     }
 }

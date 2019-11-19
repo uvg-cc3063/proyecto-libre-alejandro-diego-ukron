@@ -49,16 +49,39 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         //PAUSE MENU
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if(BossController.instance != null)
         {
-            PauseUnPause();
+            if (BossController.instance.start == false)
+            {
+                if (Input.GetKeyDown(KeyCode.Escape))
+                {
+                    PauseUnPause();
+                }
+            }
         }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                PauseUnPause();
+            }
+        }
+        
     }
 
     public void Respawn()
-    {
-        StartCoroutine(RespawnCo());
-        HealthManager.instance.PlayerKilled();        
+    {        
+        if (HealthManager.instance.lives > 0)
+        {
+            StartCoroutine(RespawnCo());
+            HealthManager.instance.PlayerKilled();            
+        }
+        else if(HealthManager.instance.lives <= 0)
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            SceneManager.LoadScene("GameOver");
+        }
     }
 
     /** A coroutine can be called wherever you want in your code, though the coroutine starts, 

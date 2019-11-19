@@ -6,7 +6,7 @@ public class BossActivator : MonoBehaviour
 {
     public GameObject entrance;
     public GameObject MainCam, AnimatedCam;
-    public GameObject UI,AIM;
+    public GameObject UI,AIM,BossHealthBar;
 
     public static BossActivator instance;
 
@@ -44,10 +44,18 @@ public class BossActivator : MonoBehaviour
 
     public void ReturnToMainCamera()
     {
-        UI.gameObject.SetActive(true);
-        AIM.gameObject.SetActive(true);
+        UI.gameObject.SetActive(true);        
         MainCam.gameObject.SetActive(true);
         AnimatedCam.gameObject.SetActive(false);
+        ActivateBossHealthBar(true);
+        if (PlayerController_s.instance.gund.currentWeapon.type == Gun.GunType.SWORD)
+        {
+            AIM.gameObject.SetActive(false);
+        }
+        else
+        {
+            AIM.gameObject.SetActive(true);
+        }
     }
 
     public void ChangeToAnimatedCamera()
@@ -55,7 +63,14 @@ public class BossActivator : MonoBehaviour
         UI.gameObject.SetActive(false);
         AIM.gameObject.SetActive(false);
         MainCam.gameObject.SetActive(false);
+        ActivateBossHealthBar(false);
         AnimatedCam.gameObject.SetActive(true);
+
+    }
+    public void ActivateBossHealthBar(bool activate)
+    {
+        BossHealthBar.gameObject.SetActive(activate);
+
     }
 
     public void EntranceOFF()

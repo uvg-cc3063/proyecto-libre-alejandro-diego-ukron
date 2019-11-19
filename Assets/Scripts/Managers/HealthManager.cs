@@ -7,6 +7,7 @@ public class HealthManager : MonoBehaviour
 {
     public static HealthManager instance;
     public int currentHealth, maxHealth;
+    public int lives = 3;
 
     public float invincibleLength = 2f;
     private float invincCounter;
@@ -149,7 +150,8 @@ public class HealthManager : MonoBehaviour
 
     public void UpdateUI()
     {
-        UIManager.instance.healthText.text = currentHealth.ToString();
+        //UIManager.instance.healthText.text = currentHealth.ToString();
+        UIManager.instance.healthText.text = lives.ToString();
         switch (currentHealth)
         {
             case 5:
@@ -182,5 +184,6 @@ public class HealthManager : MonoBehaviour
         anim.SetTrigger("Death");
         currentHealth = 0;
         UpdateUI();
+        lives--;
     }
 }

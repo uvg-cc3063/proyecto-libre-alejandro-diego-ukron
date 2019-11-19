@@ -46,7 +46,7 @@ public class GunDetection : MonoBehaviour
                 ChangeUIWeapon(currentWeapon);
             }
         }
-        else if (Input.GetKeyUp(KeyCode.LeftControl))
+        else if (Input.GetKeyUp(KeyCode.Mouse1))
         {
             if (weapons.Count > 1)
             {
@@ -56,7 +56,7 @@ public class GunDetection : MonoBehaviour
                     weaponNum = 0;
                 }
                 
-                Debug.Log("numW: " + weaponNum);
+                //Debug.Log("numW: " + weaponNum);
                 currentWeapon = weapons[weaponNum];
                 for (int i = 0;i < weapons.Count;i++)
                 {
@@ -76,7 +76,7 @@ public class GunDetection : MonoBehaviour
         {
             canGrabWeapon = true;
             WeaponToTake = other.gameObject.GetComponent<Gun>();
-            Debug.Log("tRIGGER ENTER");
+            //Debug.Log("tRIGGER ENTER");
         }
         if(other.tag == "ammo")
         {
@@ -125,7 +125,7 @@ public class GunDetection : MonoBehaviour
         {
             canGrabWeapon = false;
             WeaponToTake = null;
-            Debug.Log("tRIGGER EXIT");
+            //Debug.Log("tRIGGER EXIT");
         }
         
     }

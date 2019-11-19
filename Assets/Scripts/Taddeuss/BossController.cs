@@ -75,11 +75,13 @@ public class BossController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        BossHealthBar.instance.UpdateHealthBar(BossHealth, BossMaxHealth);
         float distanceToPlayer = Vector3.Distance(transform.position, PlayerController_s.instance.transform.position);
         if (GameManager.instance.isRespawning)
         {
             elapsedTime = 0;
             DeActivateSpotLights();
+            BossActivator.instance.ActivateBossHealthBar(false);
             currentPhase = BossPhase.intro;
 
             start = false;
@@ -128,6 +130,11 @@ public class BossController : MonoBehaviour
                     anim.SetBool("StandUp", true);
                     Timer = 15;
                     elapsedTime += Time.deltaTime;
+                    if(elapsedTime >= 12)
+                    {
+                        BossActivator.instance.ReturnToMainCamera();
+                        BossActivator.instance.ActivateBossHealthBar(true);
+                    }
                     if (elapsedTime >= Timer)
                     {
                         currentPhase = BossPhase.phase1;
@@ -137,13 +144,13 @@ public class BossController : MonoBehaviour
                         shoulder.gameObject.SetActive(true);
                         canion.gameObject.SetActive(true);
                         anim.SetBool("StandUp", false);
-                        BossActivator.instance.ReturnToMainCamera();
+                        
                     }
                 }                
                 break;
             case BossPhase.phase1:
                 PlayerController_s.instance.stopMove = false;
-                
+                rb.isKinematic = true;
                 phase1 = true;
                 phase2 = false;
                 anim.SetBool("bombAttack",true);
@@ -197,6 +204,7 @@ public class BossController : MonoBehaviour
                 break;
             case BossPhase.changeToSword:
                 BossActivator.instance.ChangeToAnimatedCamera();
+                PlayerController_s.instance.stopMove = true;
                 phase1 = false;
                 anim.SetBool("changeToSword", true);
                 Timer = 9;
@@ -207,6 +215,7 @@ public class BossController : MonoBehaviour
                     coat.gameObject.SetActive(false);
                     canion.gameObject.SetActive(false);
                     BossActivator.instance.ReturnToMainCamera();
+                    PlayerController_s.instance.stopMove = false;
                 }
                 if (elapsedTime >= Timer)
                 {
@@ -225,7 +234,7 @@ public class BossController : MonoBehaviour
                     dashSound = true;
                 }
                 phase2 = true;
-                Debug.Log("phase2");
+                //Debug.Log("phase2");
                 agent.SetDestination(PlayerController_s.instance.transform.position);
                 if(distanceToPlayer <= 2f)
                 {                    
@@ -255,7 +264,7 @@ public class BossController : MonoBehaviour
                 }
                 break;
             case BossPhase.goingPoint:                      
-                Debug.Log("goingPoint");
+                //Debug.Log("goingPoint");
                 rb.velocity = Vector3.zero;
                 if (agent.remainingDistance <= 1f)
                 {
@@ -299,7 +308,7 @@ public class BossController : MonoBehaviour
                         elapsedTime = 0;
                         currentPhase = BossPhase.changeToSword;
                         anim.SetTrigger("sword");
-                        Debug.Log("chasword");
+                        //Debug.Log("chasword");
                     }
                     /*if (!Hitted)
                     {
@@ -332,11 +341,12 @@ public class BossController : MonoBehaviour
             case BossPhase.death:
                 if (isDeath == false)
                 {
+                    BossHealthBar.instance.DestroyBar();
                     anim.SetBool("isDeath", true);
                     anim.SetTrigger("Death");
                     isDeath = true;
                     //agent.SetDestination(patrolPoints[currentPatrolPoint].position);
-                    rb.AddForce(PlayerController_s.instance.transform.forward * 5, ForceMode.Impulse);
+                    rb.AddForce(PlayerController_s.instance.transform.forward * 7.5f, ForceMode.Impulse);
                     StartCoroutine(StopRbForce());
                     //hurtBox.gameObject.SetActive(false);
                     agent.velocity = Vector3.zero;

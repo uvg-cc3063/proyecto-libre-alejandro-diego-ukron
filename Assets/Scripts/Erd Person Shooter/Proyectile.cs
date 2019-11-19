@@ -31,15 +31,18 @@ public class Proyectile : MonoBehaviour {
         if(other.tag == "Environment")
         {
             DestroyOnHit();
+            AudioManager.instance.PlaySfx(37);
         }
         if (other.tag == "Enemy")
         {
             DestroyOnHit();
             other.GetComponent<EnemyHealthManager>().TakeDamage();
+            AudioManager.instance.PlaySfx(36);
         }
         if (other.tag == "bossShield")
         {
             DestroyOnHit();
+            AudioManager.instance.PlaySfx(40);
         }
     }
 }

@@ -33,7 +33,7 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(firstLevel);
         PlayerPrefs.SetInt("Continue", 0);
         PlayerPrefs.SetString("CurrentLevel", firstLevel);
-
+        
         ResetProgress();
     }
 

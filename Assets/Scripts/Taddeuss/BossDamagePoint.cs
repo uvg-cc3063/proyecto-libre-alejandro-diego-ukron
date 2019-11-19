@@ -37,6 +37,7 @@ public class BossDamagePoint : MonoBehaviour
             {
                 BossController.instance.DamageBoss();
                 other.GetComponent<Proyectile>().DestroyOnHit();
+                AudioManager.instance.PlaySfx(41);
             }
             if (other.tag == "mortar")
             {
@@ -47,12 +48,13 @@ public class BossDamagePoint : MonoBehaviour
             {
                 BossController.instance.DamageBoss();
                 other.GetComponent<Proyectile>().DestroyOnHit();
+                AudioManager.instance.PlaySfx(41);
             }
-            if (other.tag == "sword")
+            /*if (other.tag == "sword")
             {
                 BossController.instance.DamageBoss();
-
-            }
+                AudioManager.instance.PlaySfx(41);
+            }*/
             Triggered = true;
         }       
         
