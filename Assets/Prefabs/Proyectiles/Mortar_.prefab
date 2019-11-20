@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43f277d249a19824384531466cf13408, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ExplotionEffect: {fileID: 5015649320159202460, guid: 6eccd13348bdd044c8229b09e4362d15,
+  ExplotionEffect: {fileID: 1329845292236604, guid: 9dc58041f377cdb4ab6feeb4b1ebfc1b,
     type: 3}
   elapsedTime: 0
   TimeToExplotion: 2.5
@@ -94,8 +94,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.7655652, y: 0.44149387, z: 0.45137358}
-  m_Center: {x: -0.05516115, y: 0.0034475923, z: 0}
+  m_Size: {x: 1.0459841, y: 0.6026623, z: 0.6683242}
+  m_Center: {x: -0.061753094, y: 0.08403182, z: 0.0024231523}
 --- !u!135 &1652646931046338361
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -116,11 +116,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2366379428213559715}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: f9ca92aa28b8fc14eafaf2b6968b9de0,
-        type: 3}
-      propertyPath: m_Name
-      value: Mortar
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: f9ca92aa28b8fc14eafaf2b6968b9de0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -185,6 +180,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 99.99997
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: f9ca92aa28b8fc14eafaf2b6968b9de0,
+        type: 3}
+      propertyPath: m_Name
+      value: Mortar
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9ca92aa28b8fc14eafaf2b6968b9de0, type: 3}
