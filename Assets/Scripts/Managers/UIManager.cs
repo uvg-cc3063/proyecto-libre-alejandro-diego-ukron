@@ -17,7 +17,7 @@ public class UIManager : MonoBehaviour
 
     public Text gearGoldText, gearBronceText, gearSilverText;
 
-    public GameObject PauseScreen, optionsScreen;
+    public GameObject PauseScreen, optionsScreen,controlsScreen;
 
     public Slider musicVolSlider, sfxVolSlider;
 
@@ -72,6 +72,16 @@ public class UIManager : MonoBehaviour
     public void CloseOptions()
     {
         optionsScreen.SetActive(false);
+    }
+
+    public void OpenControls()
+    {
+        controlsScreen.SetActive(true);
+    }
+
+    public void CloseControls()
+    {
+        controlsScreen.SetActive(false);
     }
 
     public void LevelSelect()

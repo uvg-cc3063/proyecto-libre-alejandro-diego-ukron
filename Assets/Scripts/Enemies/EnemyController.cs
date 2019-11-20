@@ -85,6 +85,7 @@ public class EnemyController : MonoBehaviour
                 Hitted = false;
                 anim.SetBool("IsMoving", false);
                 rb.velocity = Vector3.zero;
+                rb.isKinematic = true;
                 if (waitCounter > 0)
                 {
                     waitCounter -= Time.deltaTime;
@@ -93,12 +94,14 @@ public class EnemyController : MonoBehaviour
                 {
                     currentState = AIState.isPatrolling;
                     agent.SetDestination(patrolPoints[currentPatrolPoint].position);
+                    rb.isKinematic = false;
                 }
 
                 if (distanceToPlayer <= chaseRange)
                 {
                     currentState = AIState.isChasing;
                     anim.SetBool("IsMoving", true);
+                    rb.isKinematic = false;
                 }
 
                 break;

@@ -78,9 +78,9 @@ public class GameManager : MonoBehaviour
         }
         else if(HealthManager.instance.lives <= 0)
         {
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-            SceneManager.LoadScene("GameOver");
+            StartCoroutine(RespawnCo());
+            HealthManager.instance.PlayerKilled();
+            StartCoroutine(GameOverCo());
         }
     }
 
@@ -167,6 +167,7 @@ public class GameManager : MonoBehaviour
         {
             UIManager.instance.PauseScreen.SetActive(true);
             UIManager.instance.CloseOptions();
+            UIManager.instance.CloseControls();
             Time.timeScale = 0f;
 
             Cursor.visible = true;
@@ -236,5 +237,13 @@ public class GameManager : MonoBehaviour
 
         SceneManager.LoadScene(levelToLoad);
 
+    }
+
+    public IEnumerator GameOverCo()
+    {
+        yield return new WaitForSeconds(2f);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        SceneManager.LoadScene("GameOver");
     }
 }

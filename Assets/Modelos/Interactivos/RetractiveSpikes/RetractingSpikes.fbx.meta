@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: SpikesBase
-    second: {fileID: 2100000, guid: f4084cde8331f8745b1aac05636cff13, type: 2}
+    second: {fileID: 2100000, guid: d0d03d5f2485b5249b3eb92750c2723c, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
