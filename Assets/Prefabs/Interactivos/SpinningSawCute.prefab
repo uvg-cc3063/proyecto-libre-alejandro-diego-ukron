@@ -62,7 +62,7 @@ GameObject:
   - component: {fileID: 6603336585985528923}
   - component: {fileID: 6603336585985528916}
   - component: {fileID: 6603336585985528917}
-  - component: {fileID: 6603336585985528918}
+  - component: {fileID: 4332888812224742048}
   m_Layer: 0
   m_Name: Mover
   m_TagString: Untagged
@@ -117,7 +117,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.6252724, y: 1.6344128, z: 1.9704729}
   m_Center: {x: 0.0050735073, y: 0.31720608, z: 0.013859907}
---- !u!114 &6603336585985528918
+--- !u!114 &4332888812224742048
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -126,10 +126,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6603336585985528922}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5a5b2440bcf13a4ebb6f47a3cb21bba, type: 3}
+  m_Script: {fileID: 11500000, guid: 41c918203e4e6d3459f77c96db263111, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   killAtOnce: 1
+  type: 1
 --- !u!1 &6603336586975808798
 GameObject:
   m_ObjectHideFlags: 0

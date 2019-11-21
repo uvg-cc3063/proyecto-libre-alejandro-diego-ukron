@@ -71,15 +71,12 @@ public class GameManager : MonoBehaviour
 
     public void Respawn()
     {        
-        if (HealthManager.instance.lives > 0)
+
+        StartCoroutine(RespawnCo());
+        HealthManager.instance.PlayerKilled();           
+
+        if(HealthManager.instance.lives <= 0)
         {
-            StartCoroutine(RespawnCo());
-            HealthManager.instance.PlayerKilled();            
-        }
-        else if(HealthManager.instance.lives <= 0)
-        {
-            StartCoroutine(RespawnCo());
-            HealthManager.instance.PlayerKilled();
             StartCoroutine(GameOverCo());
         }
     }

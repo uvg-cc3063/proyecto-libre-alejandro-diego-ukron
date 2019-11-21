@@ -2103,6 +2103,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 161924108967608519}
     m_Modifications:
+    - target: {fileID: 5847339217339194065, guid: fbb137f64e53cc640bd0418fb50acafe,
+        type: 3}
+      propertyPath: m_Name
+      value: Cameras
+      objectReference: {fileID: 0}
     - target: {fileID: 5847339217339194066, guid: fbb137f64e53cc640bd0418fb50acafe,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2158,21 +2163,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5847339217339194065, guid: fbb137f64e53cc640bd0418fb50acafe,
-        type: 3}
-      propertyPath: m_Name
-      value: Cameras
-      objectReference: {fileID: 0}
-    - target: {fileID: 5847339217724587309, guid: fbb137f64e53cc640bd0418fb50acafe,
-        type: 3}
-      propertyPath: m_LookAt
-      value: 
-      objectReference: {fileID: 8265405545203964274}
-    - target: {fileID: 5847339217724587309, guid: fbb137f64e53cc640bd0418fb50acafe,
-        type: 3}
-      propertyPath: m_Follow
-      value: 
-      objectReference: {fileID: 8265405545203964273}
     - target: {fileID: 5847339217724587310, guid: fbb137f64e53cc640bd0418fb50acafe,
         type: 3}
       propertyPath: m_LocalRotation.y
@@ -2188,6 +2178,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -10.5432005
       objectReference: {fileID: 0}
+    - target: {fileID: 5847339217724587309, guid: fbb137f64e53cc640bd0418fb50acafe,
+        type: 3}
+      propertyPath: m_LookAt
+      value: 
+      objectReference: {fileID: 8265405545203964274}
+    - target: {fileID: 5847339217724587309, guid: fbb137f64e53cc640bd0418fb50acafe,
+        type: 3}
+      propertyPath: m_Follow
+      value: 
+      objectReference: {fileID: 8265405545203964273}
     - target: {fileID: 5847339218190326471, guid: fbb137f64e53cc640bd0418fb50acafe,
         type: 3}
       propertyPath: m_LocalRotation.x
@@ -2817,6 +2817,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 161924108967608519}
     m_Modifications:
+    - target: {fileID: 8507836630236214849, guid: c57f661d72983544b95a9d61136fa687,
+        type: 3}
+      propertyPath: m_Name
+      value: Systems Manager
+      objectReference: {fileID: 0}
     - target: {fileID: 8507836630236214848, guid: c57f661d72983544b95a9d61136fa687,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2871,11 +2876,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8507836630236214849, guid: c57f661d72983544b95a9d61136fa687,
-        type: 3}
-      propertyPath: m_Name
-      value: Systems Manager
       objectReference: {fileID: 0}
     - target: {fileID: 8507836630236214850, guid: c57f661d72983544b95a9d61136fa687,
         type: 3}
