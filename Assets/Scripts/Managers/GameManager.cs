@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name != "LevelSelect")
+            if (Input.GetKeyDown(KeyCode.Escape) /*&& SceneManager.GetActiveScene().name != "LevelSelect"*/)
             {
                 PauseUnPause();
             }
