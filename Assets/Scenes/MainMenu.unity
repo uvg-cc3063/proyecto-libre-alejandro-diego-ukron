@@ -235,14 +235,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba05daa534a93994dbded93a53721841, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstLevel: Test_Diego
+  firstLevel: Level1
   levelSelect: LevelSelect
   continueButton: {fileID: 315428045}
   levelNames:
-  - Test_Ale
-  - Test_Diego
-  - Boss_test
-  - ErdPShotterTest
+  - Tutorial_Scene
+  - Level1
+  - Boss_Crater
 --- !u!1 &226113847
 GameObject:
   m_ObjectHideFlags: 0
@@ -2248,6 +2247,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5971201678362091875}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: 0ee522550f1df48409a58b795e05fb51,
+        type: 3}
+      propertyPath: m_Name
+      value: ukron_
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 0ee522550f1df48409a58b795e05fb51,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2302,11 +2306,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 0ee522550f1df48409a58b795e05fb51,
-        type: 3}
-      propertyPath: m_Name
-      value: ukron_
       objectReference: {fileID: 0}
     - target: {fileID: -444521105353760620, guid: 0ee522550f1df48409a58b795e05fb51,
         type: 3}
@@ -3648,6 +3647,7 @@ MonoBehaviour:
   forwardMoveSpeed: 1
   backwardMoveSpeed: 1
   turnSpeed: 150
+  gund: {fileID: 0}
 --- !u!114 &6079290855756676445
 MonoBehaviour:
   m_ObjectHideFlags: 0

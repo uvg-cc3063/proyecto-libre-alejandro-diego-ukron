@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     public int currentSilverGears;
     public int currentBronceGears;
 
-    public int levelEndSFX= 8;
+    public int levelEndSFX = 8;
 
     public string levelToLoad;
 
@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
-        if(SceneManager.GetActiveScene().name == "LevelSelect")
+        if (SceneManager.GetActiveScene().name == "LevelSelect")
         {
             respawnPosition = PlayerController.instance.transform.position;
         }
@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
         {
             respawnPosition = PlayerController_s.instance.transform.position;
         }
-        
+
 
         //AddCoins(0);
     }
@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         //PAUSE MENU
-        if(BossController.instance != null)
+        if (BossController.instance != null)
         {
             if (BossController.instance.start == false)
             {
@@ -61,21 +61,21 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name != "LevelSelect")
             {
                 PauseUnPause();
             }
         }
-        
+
     }
 
     public void Respawn()
-    {        
+    {
 
         StartCoroutine(RespawnCo());
-        HealthManager.instance.PlayerKilled();           
+        HealthManager.instance.PlayerKilled();
 
-        if(HealthManager.instance.lives <= 0)
+        if (HealthManager.instance.lives <= 0)
         {
             StartCoroutine(GameOverCo());
         }
@@ -120,7 +120,7 @@ public class GameManager : MonoBehaviour
             PlayerController_s.instance.stopMove = false;
         }
 
-        
+
 
     }
 
@@ -177,7 +177,7 @@ public class GameManager : MonoBehaviour
         //AudioManager.instance.PlayMusic(levelEndMusic);
         AudioManager.instance.StopAllSFX();
 
-        
+
         if (SceneManager.GetActiveScene().name == "LevelSelect")
         {
             PlayerController.instance.stopMove = true;
