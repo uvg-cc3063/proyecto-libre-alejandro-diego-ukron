@@ -234,7 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba05daa534a93994dbded93a53721841, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstLevel: Level1
+  firstLevel: Tutorial_Scene
   levelSelect: LevelSelect
   continueButton: {fileID: 315428045}
   canvasCreditos: {fileID: 905369068}
