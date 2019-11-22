@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class LSLevelEntry : MonoBehaviour
 {
-    public string levelName, levelToCheck, displayName;
+    public string levelName, levelToCheck, displayName, levelNumber;
     private bool canLoadLevel, levelUnlocked;
 
     public GameObject mapPointActive, mapPointInactive;
@@ -54,15 +54,33 @@ public class LSLevelEntry : MonoBehaviour
             canLoadLevel = true;
             LSUIManager.instance.lNamePanel.SetActive(true);
             LSUIManager.instance.lNameText.text = displayName;
+            if (levelNumber == "1")
+            {
+                LSUIManager.instance.imagenNivel1.SetActive(true);
+                LSUIManager.instance.imagenNivel2.SetActive(false);
+                LSUIManager.instance.imagenNivel3.SetActive(false);
+            }
+            else if (levelNumber == "2")
+            {
+                LSUIManager.instance.imagenNivel1.SetActive(false);
+                LSUIManager.instance.imagenNivel2.SetActive(true);
+                LSUIManager.instance.imagenNivel3.SetActive(false);
+            }
+            else if (levelNumber == "3")
+            {
+                LSUIManager.instance.imagenNivel1.SetActive(false);
+                LSUIManager.instance.imagenNivel2.SetActive(false);
+                LSUIManager.instance.imagenNivel3.SetActive(true);
+            }
             if (PlayerPrefs.HasKey(levelName + "_coinsGold"))
             {
                 LSUIManager.instance.coinsTextGold.text = PlayerPrefs.GetInt(levelName + "_coinsGold").ToString();
-                
+
             }
             else
             {
                 LSUIManager.instance.coinsTextGold.text = "???";
-               
+
             }
 
             if (PlayerPrefs.HasKey(levelName + "_coinsSilver"))

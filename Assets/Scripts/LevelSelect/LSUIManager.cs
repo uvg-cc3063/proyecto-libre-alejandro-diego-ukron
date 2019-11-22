@@ -12,14 +12,17 @@ public class LSUIManager : MonoBehaviour
 
     public Text coinsTextGold, coinsTextSilver, coinsTextCupper;
 
+    public GameObject imagenNivel1, imagenNivel2, imagenNivel3;
+
     private void Awake()
     {
         instance = this;
     }
     void Start()
     {
-        
-
+        imagenNivel1.SetActive(false);
+        imagenNivel2.SetActive(false);
+        imagenNivel3.SetActive(false);
     }
 
     // Update is called once per frame
