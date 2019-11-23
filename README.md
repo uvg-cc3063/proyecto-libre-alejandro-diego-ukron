@@ -1,6 +1,6 @@
 <h1 align="center">
 <br>
-  <img src="https://cdn1.iconfinder.com/data/icons/modern-future-technology/128/game-controller-ps-512.png" alt="Ukron" width="332"> 
+  <img src="Thaddeus_Fight.jpg" alt="UkronTadd" width="332"> 
 <br>
 <br>
 UKRON'S REVENGE the videogame
