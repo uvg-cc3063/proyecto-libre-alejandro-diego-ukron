@@ -1,6 +1,6 @@
 <h1 align="center">
 <br>
-  <img src="Thaddeus_Fight.jpg" alt="UkronTadd" width="332"> 
+  <img src="Thaddeus_Fight.jpg" alt="UkronTadd" width="664"> 
 <br>
 <br>
 UKRON'S REVENGE the videogame
